@@ -12,7 +12,6 @@ body {
     max-width: 37em;
     border: 1px solid #C6C1B6;
     border-radius: 8px;
-    /*box-shadow: 0 0 .7em #ccc;*/
     background-color: white;
 }
 
@@ -83,15 +82,13 @@ button {
     margin: 0.1em 0;
     border-radius: 0.3em;
     border: none;
-    /*border: 1px solid #3BAE45; */
     font-size: 18px;
     color: #FFF;
-    background-color: #4ABF54;/*#3FB951;*/
+    background-color: #4ABF54;
 }
 
 button:hover {
     background-color: #2EA540;
-    /*border: 1px solid #2A9733;*/
 }
 
 a {
