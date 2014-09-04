@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    <img class="center" src="/lyli.png" alt="Käsin piirretty LyLi"/>
+</div>
+
+{% if newurl %}
+<div class="notification"><h2>Lyhentäminen onnistui!</h2>
+    <a id="newurl" href="http://lyli.fi/{{newurl}}">http://lyli.fi/{{newurl}}</a><br>
+    {#<input type="text" id="newurl" value="http://lyli.fi/{{newurl}}"><br>#}
+    <span class="description">Lyhyt linkki vapautuu kun sitä ei ole käytetty viikkoon.</span>
+</div>
+{#<script>
+    window.onload = document.getElementById('newurl').select();
+</script>#}
+{% endif %}
+
+{% if nosuchname %}
+<div class="notification"><h2>Linkkiä lyli.&#xFB01;/{{nosuchname}} ei ole olemassa.</h2>
+    <span class="description">Se on saattanut joskus olla olemassa. Linkit vapautuvat, kun niitä ei ole käytetty viikkoon.</span>
+</div>
+{% elif nosuchsite %}
+<div class="notification"><h2>Sivua lyli.&#xFB01;{{nosuchsite}} ei ole olemassa.</h2>
+</div>
+{% endif %}
+
+<form method="post" action="/">
+    <div>
+        <input class="big" type="url" name="url" id="url" placeholder="Sijoita pitkä linkki tähän" value="{{url}}">
+        {% if emptyurl %}
+        <span class="error">Tyhjää linkkiä ei voi lyhentää.</span>
+        {% elif illegalscheme %}
+        <span class="error">Vain http- ja https-linkit ovat sallittuja.</span>
+        {% elif illegalurl %}
+        <span class="error">Linkissä on jotain outoa.</span>
+        {% endif %}
+    </div>
+    <div>
+        <input type="hidden" name="default_name" value="{{default_name}}">
+        <span>lyli.fi/</span><input type="text" name="name" id="name" placeholder="{{default_name}}" value="{{name}}"><br>
+        {% if nameinuse %}
+        <span class="error">lyli.fi/{{nameinuse}} on jo käytössä.</span>
+        {% elif illegalname %}
+        <span class="error">Päätteessä ei saa olla sanavälejä, pisteitä eikä kauttaviivoja.</span>
+        {% else %}
+        <span class="description">Lyhyt linkki, joka ohjaa samalle sivulle kuin pitkä linkki.</span>
+        {% endif %}
+    </div>
+    <button type="submit">Lyhennä</button>
+</form>
+{% endblock %}

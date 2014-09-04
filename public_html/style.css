@@ -1,0 +1,163 @@
+body {
+    background-color: #DDD7CB;
+    color: #333;
+    font-family: georgia;
+    font-size: 18px;
+    margin: 0;
+}
+
+.content {
+    margin: 1em auto;
+    padding: 1.5em 3em;
+    max-width: 37em;
+    border: 1px solid #C6C1B6;
+    border-radius: 8px;
+    /*box-shadow: 0 0 .7em #ccc;*/
+    background-color: white;
+}
+
+img {
+    margin-bottom: 2em;
+    height: 120px;
+    display: block;
+}
+
+.center { 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.notification {
+    background-color: #FFE2A3;
+    padding: 1.5em;
+    margin-bottom: 2em;
+    border-radius: 0.3em;
+}
+
+div.notification>span {
+    color: #666;
+}
+
+h2 {
+    font-family: georgia;
+    font-size: 23px;
+    font-weight: normal;
+    margin: 0 0 0.2em 0;
+}
+
+#newurl {
+    margin-top: 0.7em;
+}
+
+form, div {
+    margin: 1em 0;
+}
+
+input[type=text], input[type=url] {
+    padding: 3px 7px;
+    width: 100%;
+    max-width: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-size: 18px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    color: #333;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input.big {
+    margin: 3px 0;
+    padding: 7px 11px;
+}
+
+#name {
+    width: 200px;
+    margin: 3px;
+}
+
+button {
+    padding: 0.7em;
+    width: 200px;
+    margin: 0.1em 0;
+    border-radius: 0.3em;
+    border: none;
+    /*border: 1px solid #3BAE45; */
+    font-size: 18px;
+    color: #FFF;
+    background-color: #4ABF54;/*#3FB951;*/
+}
+
+button:hover {
+    background-color: #2EA540;
+    /*border: 1px solid #2A9733;*/
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    color: #0685C0;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    font-size: 14px;
+    color: #D42600;
+    line-height: 160%;
+}
+
+.description {
+    font-size: 14px;
+    color: #777;
+    line-height: 160%;
+}
+
+footer {
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+}
+
+footer>a {
+    color: #777;
+}
+
+@media all and (max-width: 48em) {
+    .content {
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: 0 0;
+    }
+
+    body {
+        background-color: white;
+    } 
+}
+
+@media all and (max-width: 30em) {
+    .content {
+        padding: 1em;
+    }
+    img {
+        height: 90px;
+        margin-bottom: 1.3em;
+    }
+    button {
+        width: 100%;
+    }
+
+    #name {
+        width: 80%;
+    }
+
+    div.notification {
+        background-color: #FFE2A3;
+        padding: 1em;
+    }
+
+}
