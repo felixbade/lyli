@@ -7,7 +7,7 @@ class URLShortener:
     def __init__(self):
         self.r = redis.StrictRedis(host='localhost', port=6379, db=0)
         self.namespace = 'shorturl'
-        self.ttl = 60*60*24*7 # a week
+        self.ttl = 60*60*24*7*2 # two weeks
 
     def shorten(self, url, name):
         existing_url = self.get(name)

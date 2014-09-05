@@ -9,13 +9,13 @@
 <div class="notification"><h2>Lyhentäminen onnistui!</h2>
     <a id="newurl" href="http://lyli.fi/{{newurl}}">http://lyli.fi/{{newurl}}</a><br>
     {#<input type="text" id="newurl" value="http://lyli.fi/{{newurl}}"><br>#}
-    <span class="description">Lyhyt linkki vapautuu kun sitä ei ole käytetty viikkoon.</span>
+    <span class="description">Lyhyt linkki vapautuu kun sitä ei ole käytetty kahteen viikkoon.</span>
 </div>
 {% endif %}
 
 {% if nosuchname %}
 <div class="notification"><h2>Linkkiä lyli.&#xFB01;/{{nosuchname}} ei ole olemassa.</h2>
-    <span class="description">Se on saattanut joskus olla olemassa. Linkit vapautuvat, kun niitä ei ole käytetty viikkoon.</span>
+    <span class="description">Se on saattanut joskus olla olemassa. Linkit vapautuvat, kun niitä ei ole käytetty kahteen viikkoon.</span>
 </div>
 {% elif nosuchsite %}
 <div class="notification"><h2>Sivua lyli.&#xFB01;{{nosuchsite}} ei ole olemassa.</h2>
