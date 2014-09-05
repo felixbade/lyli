@@ -11,9 +11,6 @@
     {#<input type="text" id="newurl" value="http://lyli.fi/{{newurl}}"><br>#}
     <span class="description">Lyhyt linkki vapautuu kun sitä ei ole käytetty viikkoon.</span>
 </div>
-{#<script>
-    window.onload = document.getElementById('newurl').select();
-</script>#}
 {% endif %}
 
 {% if nosuchname %}
@@ -38,7 +35,7 @@
     </div>
     <div>
         <input type="hidden" name="default_name" value="{{default_name}}">
-        <span>lyli.fi/</span><input type="text" name="name" id="name" placeholder="{{default_name}}" value="{{name}}"><br>
+        <span>lyli.fi/</span><input type="text" name="name" id="name" placeholder="{{default_name}}" value="{{name}}" autocapitalize="off"><br>
         {% if nameinuse %}
         <span class="error">lyli.fi/{{nameinuse}} on jo käytössä.</span>
         {% elif illegalname %}
