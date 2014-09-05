@@ -1,3 +1,3 @@
 #!/bin/bash
 
-(flask/bin/python main.py &>> log.txt)&
+(flask/bin/python lyli.py &>> log.txt)&
