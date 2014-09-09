@@ -23,9 +23,6 @@ def index(name=''):
         if url is None:
             args['nosuchname'] = name
         else:
-            # TODO: add headers below
-            # Cache-Control: no-cache
-            # Pragma: no-cache
             return redirect(url, code=307)
     
     elif request.method == 'POST':
@@ -37,7 +34,6 @@ def index(name=''):
         else:
             name = args['name'] or args['default_name']
             name = decodeURLPath(name)
-            name = removeControlCharacters(name)
             
             if url == '':
                 args['emptyurl'] = True
