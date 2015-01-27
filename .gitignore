@@ -1,4 +1,5 @@
-log.txt
+*.log
+*log*.txt
 /flask/*
 /config.py
 
