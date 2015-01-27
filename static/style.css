@@ -84,11 +84,11 @@ button {
     border: none;
     font-size: 18px;
     color: #FFF;
-    background-color: #4ABF54;
+    background-color: #57a93b;
 }
 
 button:hover {
-    background-color: #2EA540;
+    background-color: #45852f;
 }
 
 a {
