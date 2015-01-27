@@ -1,7 +1,8 @@
+{# This comment makes vim realize that this file is a jinja template #}
 <!DOCTYPE HTML>
 <html lang="fi">
     <head>
-        <title>Lyhennä linkki</title>
+        <title>{% block title %}Lyhennä linkki{% endblock %}</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <meta name="apple-mobile-web-app-title" content="Lyli">
@@ -12,7 +13,7 @@
         <div class="content">
             {% block content %}{% endblock %}
             <footer>
-            &copy; 2014 Felix Bade &middot; <a href="mailto:lyhyetlinkit@gmail.com">Ota yhteyttä</a> &middot; <a href="https://github.com/felixbade/lyli">Lähdekoodi</a>
+            &copy; 2014 Felix Bade &middot; <a href="mailto:lyhyetlinkit@gmail.com">Ota yhteyttä</a> &middot; <a href="/ehdot/">Käyttöehdot</a> &middot; <a href="https://github.com/felixbade/lyli">Lähdekoodi</a>
             </footer>
         </div>
     </body>
