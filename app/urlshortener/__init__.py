@@ -6,9 +6,7 @@ class URLShortener:
     
     def __init__(self, default_ttl):
         self.r = redis.StrictRedis(host='localhost', port=6379, db=0)
-        self.new_namespace = 'lyli'
-        self.old_namespace = 'shorturl' # This can be removed on 29.11.2014 at 22:50
-        self.namespace = self.new_namespace
+        self.namespace = 'lyli'
         self.ttl = default_ttl
 
     def shorten(self, url, name):
@@ -53,20 +51,8 @@ class URLShortener:
         url = self.get(name)
         return url is not None
 
-    # move slowly to new name space
     def get(self, name):
         url = self.r.get(self.getRedisKeyForURL(name))
-        if url is None:
-            self.namespace = self.old_namespace
-            url = self.r.get(self.getRedisKeyForURL(name))
-            visitcount = self.getVisitCount(name)
-            
-            self.namespace = self.new_namespace
-            # create link in new namespace if it was only in the old one
-            if url is not None:
-                self.r.set(self.getRedisKeyForURL(name), url)
-                self.r.set(self.getRedisKeyForVisitCount(name), visitcount)
-                self.resetTTL(name)
         return url
 
     def getVisitCount(self, name):
