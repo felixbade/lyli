@@ -14,11 +14,11 @@
 {% endif %}
 
 {% if nosuchname %}
-<div class="notification"><h2>Linkkiä lyli.&#xFB01;/{{nosuchname}} ei ole olemassa.</h2>
+<div class="notification"><h2>Linkkiä <span class="notfound">lyli.fi/{{nosuchname}}</span> ei ole olemassa.</h2>
     <span class="description">Se on saattanut joskus olla olemassa. Linkit vapautuvat, kun niitä ei ole käytetty kahteen viikkoon.</span>
 </div>
 {% elif nosuchsite %}
-<div class="notification"><h2>Sivua lyli.&#xFB01;{{nosuchsite}} ei ole olemassa.</h2>
+<div class="notification"><h2>Sivua <span class="notfound">lyli.fi{{nosuchsite}}</span> ei ole olemassa.</h2>
 </div>
 {% endif %}
 
@@ -26,9 +26,9 @@
     <div>
         <input class="big" type="url" name="url" id="url" placeholder="Sijoita pitkä linkki tähän" value="{{url}}">
         {% if emptyurl %}
-        <span class="error">Tyhjää linkkiä ei voi lyhentää.</span>
+        <span class="error">Tässä ei ole mitään.</span>
         {% elif illegalscheme %}
-        <span class="error">Vain http- ja https-linkit ovat sallittuja.</span>
+        <span class="error">Voit lyhentää vain http- ja https-linkkejä.</span>
         {% elif illegalurl %}
         <span class="error">Linkissä on jotain outoa.</span>
         {% endif %}
