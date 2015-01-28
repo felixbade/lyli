@@ -52,6 +52,7 @@ class URLShortener:
         return url is not None
 
     def get(self, name):
+        name = name.lower()
         url = self.r.get(self.getRedisKeyForURL(name))
         return url
 
