@@ -22,3 +22,4 @@ werkzeug.serving.WSGIRequestHandler.address_string = lambda self: self.headers.g
 logging.basicConfig(filename='access.log', level=logging.DEBUG, format='%(message)s')
 
 app.run(port=3004, debug=False, use_reloader=False)
+#app.run(port=3003, debug=True, use_reloader=True)
