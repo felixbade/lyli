@@ -80,6 +80,10 @@ input.big {
     padding: 7px 11px;
 }
 
+label {
+    font-size: 14px;
+}
+
 #name {
     width: 200px;
     margin: 3px;

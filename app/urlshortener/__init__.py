@@ -1,24 +1,26 @@
 import redis
 
 from app.urlshortener.name import getNthName
+import config
 
 class URLShortener:
     
-    def __init__(self, default_ttl):
+    def __init__(self):
         self.r = redis.StrictRedis(host='localhost', port=6379, db=0)
         self.namespace = 'lyli'
-        self.ttl = default_ttl
 
-    def shorten(self, url, name):
+    def shorten(self, url, name, begin_ttl, click_ttl):
         existing_url = self.get(name)
         if existing_url is None:
             self.r.set(self.getRedisKeyForURL(name), url)
             self.r.set(self.getRedisKeyForVisitCount(name), 0)
-            self.resetTTL(name)
+            self.setClickTTL(name, click_ttl)
+            self.setTTL(name, begin_ttl)
             return True
-        elif existing_url == url:
-            self.resetTTL(name)
-            return True
+        # TODO: what should happen if one is brief link and one is not?
+        #elif existing_url == url:
+        #    self.resetClickTTL(name)
+        #    return True
         else:
             return False
 
@@ -26,7 +28,7 @@ class URLShortener:
         url = self.get(name)
         if url is not None:
             self.r.incr(self.getRedisKeyForVisitCount(name))
-            self.resetTTL(name)
+            self.resetClickTTL(name)
         return url
 
     def getNextName(self, name=None):
@@ -59,12 +61,33 @@ class URLShortener:
     def getVisitCount(self, name):
         return self.r.get(self.getRedisKeyForVisitCount(name))
 
-    def resetTTL(self, name):
-        self.r.expire(self.getRedisKeyForURL(name), self.ttl)
-        self.r.expire(self.getRedisKeyForVisitCount(name), self.ttl)
+    
+    
+    # TODO: ttl refers to two things here.
+    # 1) the redis attribute, how soon the link will vanish
+    # 2) how much should the redis ttl attribute be set at minimum when visited
+    
+    # set type 2 ttl
+    def resetClickTTL(self, name):
+        ttl = self.r.get(self.getRedisKeyForTTL(name))
+        if ttl is None:
+            ttl = config.normal_ttl # type 2 minimum
+        ttl = max(ttl, self.getTTL(name)) # don't decrement type 1
+        self.setTTL(name, ttl)
 
+    # set type 2 minimum ttl
+    def setClickTTL(self, name, ttl):
+        self.r.set(self.getRedisKeyForTTL(name), ttl)
+
+    # return type 1 ttl
     def getTTL(self, name):
         return self.r.ttl(self.getRedisKeyForURL(name))
+
+    # set type 1 ttl
+    def setTTL(self, name, ttl):
+        self.r.expire(self.getRedisKeyForURL(name), ttl)
+        self.r.expire(self.getRedisKeyForTTL(name), ttl)
+        self.r.expire(self.getRedisKeyForVisitCount(name), ttl)
 
 
 
@@ -74,6 +97,9 @@ class URLShortener:
     def getRedisKeyForVisitCount(self, name):
         return self.getRedisKey('visit-count', name)
     
+    def getRedisKeyForTTL(self, name):
+        return self.getRedisKey('ttl', name)
+
     def getRedisKeyForDefaultNameIndex(self):
         return self.getRedisKey('default-name-index')
 
