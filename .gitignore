@@ -2,6 +2,8 @@
 *log*.txt
 /flask/*
 /config.py
+*.orig
+*.1
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
