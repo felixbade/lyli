@@ -1,6 +1,7 @@
 from flask import request, render_template, redirect
 
 from app import app
+from app import request_logger
 from app.urlshortener import URLShortener
 from app.urlshortener.url import decodeURLPath, encodeURL, isValidScheme
 from app.urlshortener.name import removeControlCharacters, isValidName
