@@ -72,7 +72,7 @@ class URLShortener:
         ttl = self.r.get(self.getRedisKeyForTTL(name))
         try:
             ttl = int(ttl)
-        except ValueError:
+        except TypeError:
             ttl = config.normal_ttl # type 2 minimum
         ttl = max(ttl, self.getTTL(name)) # don't decrement type 1
         self.setTTL(name, ttl)
