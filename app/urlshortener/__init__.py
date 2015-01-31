@@ -70,7 +70,9 @@ class URLShortener:
     # set type 2 ttl
     def resetClickTTL(self, name):
         ttl = self.r.get(self.getRedisKeyForTTL(name))
-        if ttl is None:
+        try:
+            ttl = int(ttl)
+        except ValueError:
             ttl = config.normal_ttl # type 2 minimum
         ttl = max(ttl, self.getTTL(name)) # don't decrement type 1
         self.setTTL(name, ttl)
