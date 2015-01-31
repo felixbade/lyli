@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: hsl(35, 26%, 80%);
+    background-color: hsl(40, 30%, 85%);
     color: #333;
     font-family: georgia;
     font-size: 18px;
@@ -14,7 +14,7 @@ body {
     margin: 1em auto;
     padding: 1.5em 3em;
     max-width: 37em;
-    border: 1px solid hsl(35, 15%, 67%);
+    border: 1px solid hsl(40, 15%, 70%);
     border-radius: 8px;
     background-color: white;
 }
@@ -94,8 +94,7 @@ label {
 }
 
 button {
-    padding: 0.7em;
-    height: 50px;
+    padding: 0.9em;
     width: 200px;
     margin: 0.1em 0;
     border-radius: 0.3em;
@@ -106,13 +105,14 @@ button {
 }
 
 button:hover {
-    background-color: #45852f;
+    background-color: hsl(120, 58%, 35%);
 }
 
 a {
     color: inherit;
     text-decoration: none;
-    color: #0685C0;
+    /*color: #0685C0;*/
+    color: hsl(199, 70%, 40%);
 }
 
 a:hover {
