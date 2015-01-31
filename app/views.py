@@ -28,7 +28,8 @@ def getIndexArgs():
         else:
             name = args['name'] or args['default_name']
             name = decodeURLPath(name)
-            name = removeControlCharacters(name)
+            # This breaks emoji
+            #name = removeControlCharacters(name)
             
             if url == '':
                 args['emptyurl'] = True
