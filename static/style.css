@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: #DDD7CB;
+    background-color: hsl(35, 26%, 80%);
     color: #333;
     font-family: georgia;
     font-size: 18px;
@@ -14,7 +14,7 @@ body {
     margin: 1em auto;
     padding: 1.5em 3em;
     max-width: 37em;
-    border: 1px solid #C6C1B6;
+    border: 1px solid hsl(35, 15%, 67%);
     border-radius: 8px;
     background-color: white;
 }
@@ -43,7 +43,7 @@ div.notification>span {
 
 span.notfound {
     text-decoration: underline;
-    color: #BB3A34;
+    color: hsl(8, 65%, 47%);
 }
 
 h2 {
@@ -95,13 +95,14 @@ label {
 
 button {
     padding: 0.7em;
+    height: 50px;
     width: 200px;
     margin: 0.1em 0;
     border-radius: 0.3em;
     border: none;
     font-size: 18px;
     color: #FFF;
-    background-color: #57a93b;
+    background-color: hsl(120, 43%, 45%);
 }
 
 button:hover {
@@ -180,7 +181,7 @@ footer>a {
 
     div.notification {
         background-color: #FFE2A3;
-        padding: 1em;
+        padding: 1.2em 1em;
     }
 
 }
