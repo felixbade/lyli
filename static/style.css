@@ -111,8 +111,7 @@ button:hover {
 a {
     color: inherit;
     text-decoration: none;
-    /*color: #0685C0;*/
-    color: hsl(199, 70%, 40%);
+    color: hsl(195, 100%, 37%);
 }
 
 a:hover {
