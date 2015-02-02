@@ -44,6 +44,7 @@ div.notification>span {
 span.notfound {
     text-decoration: underline;
     color: hsl(8, 65%, 47%);
+    word-wrap: break-word;
 }
 
 h2 {
