@@ -1,4 +1,5 @@
 import unicodedata
+import random
 
 def removeControlCharacters(string):
     return ''.join(character for character in string if unicodedata.category(character)[0] != 'C')
@@ -6,7 +7,11 @@ def removeControlCharacters(string):
 # j, l, o and u are not present due to unreadable handwriting
 name_characters = 'abcdefghikmnpqrstvwxyz'
 
+def randomName():
+    return ''.join(random.choice(name_characters) for x in range(4))
+
 def getNthName(n):
+    return randomName() # a hack that should work with current usage amount
     string = ''
     while True:
         n -= 1
