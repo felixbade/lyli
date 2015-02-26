@@ -7,11 +7,10 @@ def removeControlCharacters(string):
 # j, l, o and u are not present due to unreadable handwriting
 name_characters = 'abcdefghikmnpqrstvwxyz'
 
-def randomName():
-    return ''.join(random.choice(name_characters) for x in range(4))
+def getRandomName(length=4):
+    return ''.join(random.choice(name_characters) for x in range(length))
 
 def getNthName(n):
-    return randomName() # a hack that should work with current usage amount
     string = ''
     while True:
         n -= 1
