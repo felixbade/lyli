@@ -28,6 +28,15 @@ def before():
     # time() has to have sub-second resolution for this to work
     g.response_start_time = time.time()
 
+def shouldDeleteCookie(response):
+    # Nothing to delete
+    if not session:
+        return False
+    # Do Not Track
+    if request.headers.get('Dnt') == '1':
+        return True
+    return False
+
 def shouldSetCookie(response):
     # No cookie for users requesting Do Not Track.
     if request.headers.get('Dnt') == '1':
@@ -50,6 +59,9 @@ def after(response):
     if shouldSetCookie(response):
         session.permanent = True
         session['id'] = get_new_id()
+    
+    elif shouldDeleteCookie(response):
+        session.clear()
 
     now = time.time()
     # Not including log write time, which might be significant.
