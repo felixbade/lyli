@@ -28,13 +28,26 @@ def before():
     # time() has to have sub-second resolution for this to work
     g.response_start_time = time.time()
 
-@app.after_request
-def after(response):
+def shouldSetCookie(response):
+    # No cookie for users requesting Do Not Track.
+    if request.headers.get('Dnt') == '1':
+        return False
     # We should not put cookie if a new user just click's a short link
     # because she/he would have no way of knowing they are being tracked.
     # Or I don't know, for example bit.ly does exacly that any way.
-    # Also, no cookie for UptimeRobot.
-    if 'id' not in session and response.status_code != 307 and request.method != 'HEAD':
+    if response.status_code == 307:
+        return False
+    # No cookie for UptimeRobot.
+    if request.method == 'HEAD':
+        return False
+    # There is a cookie already
+    if 'id' in session:
+        return False
+    return True
+
+@app.after_request
+def after(response):
+    if shouldSetCookie(response):
         session.permanent = True
         session['id'] = get_new_id()
 
