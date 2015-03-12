@@ -21,8 +21,11 @@ body {
 
 img {
     margin-bottom: 2em;
-    height: 120px;
     display: block;
+}
+
+#lyli-icon {
+    height: 120px;
 }
 
 .center { 
@@ -168,8 +171,10 @@ footer>a {
         padding: 1em;
     }
     img {
-        height: 90px;
         margin-bottom: 1.3em;
+    }
+    #lyli-icon {
+        height: 90px;
     }
     button {
         width: 100%;
