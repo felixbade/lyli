@@ -7,12 +7,14 @@ def encodeURL(url):
 
     parsed = urlparse.urlparse(url)
     
+    reserved_characters = ':/?#[]@!$&\'()*+,;="'
+
     scheme = parsed.scheme
     netloc = parsed.netloc.encode('idna')
-    path = urllib.quote_plus(parsed.path.encode('utf-8'), '%/')
+    path = urllib.quote_plus(parsed.path.encode('utf-8'), reserved_characters)
     params = parsed.params #urllib.quote_plus(parsed.params, '&=%')
-    query = urllib.quote_plus(parsed.query.encode('utf-8'), '&=%/')
-    fragment = urllib.quote_plus(parsed.fragment.encode('utf-8'), '&=%')
+    query = urllib.quote_plus(parsed.query.encode('utf-8'), reserved_characters)
+    fragment = urllib.quote_plus(parsed.fragment.encode('utf-8'), reserved_characters)
 
     return urlparse.urlunparse((scheme, netloc, path, params, query, fragment))
 
