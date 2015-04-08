@@ -88,6 +88,12 @@ input.big {
     padding: 7px 11px;
 }
 
+::-webkit-input-placeholder { color: #aaa; }
+::-moz-placeholder { color: #aaa; } /* firefox 19+ */
+:-ms-input-placeholder { color: #aaa; } /* ie */
+input:-moz-placeholder { color: #aaa; }
+
+
 label {
     font-size: 14px;
 }
