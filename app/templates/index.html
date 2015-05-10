@@ -47,12 +47,17 @@
         <span class="description">Lyhyt linkki, joka vie samalle sivulle kuin pitkä linkki.</span>
         {% endif %}
     </div>
-    
-    <div>
+
+    {#<div>
+        <a href="?showoptions=true"><span class="description">Näytä lisävalinnat</span></a>
+    </div>#}
+
+
+    {#<div>
         <input type="checkbox" name="brief" id="brief" value="true">
         <label for="brief">Poista lyhennys tunnin päästä.</label>
     </div>
-    
-    <button type="submit">Lyhennä</button>
+    #}
+    <button type="submit" id="shorten-button">Lyhennä</button>
 </form>
 {% endblock %}
