@@ -2,8 +2,7 @@ import urlparse
 import urllib
 
 def encodeURL(url):
-    #if not ':' in url or not '/' in url.split(':')[0]:
-    if not '://' in url:
+    if url and not '://' in url and '.' in url:
         url = 'http://' + url
 
     parsed = urlparse.urlparse(url)
