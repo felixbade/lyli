@@ -4,18 +4,26 @@
     <head>
         <title>{% block title %}Lyli - Lyhennä linkki{% endblock %}</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <meta name="apple-mobile-web-app-title" content="Lyli">
         <meta name="description" content="Lyhennä pitkä linkki helposti muistettavaksi lyhyeksi linkiksi">
         <meta name="keywords" content="lyhyt, linkki, url, lyhennys, osoite">
+        <meta property="og:site_name" content="Lyli">
+        <meta property="og:title" content="Lyhennä linkki">
+        <meta property="og:description" content="Lyhennä pitkä linkki helposti muistettavaksi lyhyeksi linkiksi">
+        <meta property="og:image" content="/lyli-with-margins.png">
+        <link rel="shortcut icon" href="/lyli-with-margins.png">
         <link rel="stylesheet" href="/style.css" type="text/css" />
-        <link rel="shortcut icon" href="/lyli.png">
     </head>
     <body>
         <div class="content">
             {% block content %}{% endblock %}
             <footer>
-                &copy; 2014-2015 Felix Bade &middot; <a href="mailto:lyli@lyli.fi">Ota yhteyttä</a> &middot; <a href="/ehdot/">Käyttöehdot</a> &middot; <a href="https://github.com/felixbade/lyli">Lähdekoodi</a>
+            <a href="/ehdot/">Käyttöehdot</a> &middot; {% block monimutkainen_footer %}<a href="/monimutkainen/">Monimutkainen versio</a>{% endblock %}
+            &middot;
+            <a href="mailto:{{email}}">Sähköposti</a> &middot; <a href="https://twitter.com/lyli_fi">Twitter</a> &middot; <a href="https://github.com/felixbade/lyli">Lähdekoodi</a>
+            <br>
+            &copy; 2014-2015 <a href="http://felixbade.fi/">Felix Bade</a>
             </footer>
         </div>
     </body>
