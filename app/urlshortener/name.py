@@ -18,9 +18,3 @@ def getNthName(n):
         string = name_characters[i] + string
         if n <= 0:
             return string
-
-def isValidName(name):
-    if not name:
-        return False # if a hacker sends an empty default_name,
-        # we don't care if our response is not legit
-    return not any(c in ' ./' for c in name)

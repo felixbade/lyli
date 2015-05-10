@@ -1,6 +1,8 @@
 import redis
 
 from app.urlshortener.name import getNthName
+from app.urlshortener.url import encodeURL
+
 import config
 
 class URLShortener:
@@ -11,6 +13,7 @@ class URLShortener:
 
     def shorten(self, url, name, begin_ttl, click_ttl):
         name = name.lower()
+        url = encodeURL(url)
         existing_url = self.get(name)
         if existing_url is None:
             self.r.set(self.getRedisKeyForURL(name), url)

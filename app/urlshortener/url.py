@@ -20,8 +20,3 @@ def encodeURL(url):
 
 def decodeURLPath(path):
     return urllib.unquote_plus(path)
-
-def isValidScheme(url, schemes=['http', 'https']):
-    parsed = urlparse.urlparse(url)
-    return parsed.scheme in schemes
-

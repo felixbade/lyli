@@ -10,10 +10,11 @@ def b62(number):
     return ''.join(encoded)
 
 def getID():
+    # integer of unixtime with microsecond resolution
     integerid = int(time.time() * 1e6)
     return b62(integerid)
 
-def getEmail():
+def get_email():
     return 'lyli@lyli.fi'
     # track email spammers
     #return 'lyli.%s@lyli.fi' % getID()

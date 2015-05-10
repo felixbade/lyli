@@ -19,11 +19,16 @@
         <div class="content">
             {% block content %}{% endblock %}
             <footer>
-            <a href="/ehdot/">Käyttöehdot</a> &middot; {% block monimutkainen_footer %}<a href="/monimutkainen/">Monimutkainen versio</a>{% endblock %}
-            &middot;
-            <a href="mailto:{{email}}">Sähköposti</a> &middot; <a href="https://twitter.com/lyli_fi">Twitter</a> &middot; <a href="https://github.com/felixbade/lyli">Lähdekoodi</a>
-            <br>
-            &copy; 2014-2015 <a href="http://felixbade.fi/">Felix Bade</a>
+                <a href="/ehdot/">Käyttöehdot</a> &middot;
+                {% if complicated %}
+                <a href="/">Yksinkertainen versio</a>
+                {% else %}
+                <a href="/monimutkainen/">Monimutkainen versio</a>
+                {% endif %}
+                &middot;
+                <a href="mailto:{{email}}">Sähköposti</a> &middot; <a href="https://twitter.com/lyli_fi">Twitter</a> &middot; <a href="https://github.com/felixbade/lyli">Lähdekoodi</a>
+                <br>
+                &copy; 2014-2015 <a href="http://felixbade.fi/">Felix Bade</a>
             </footer>
         </div>
     </body>
