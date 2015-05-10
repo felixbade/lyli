@@ -1,7 +1,7 @@
 import time
 import json
 
-from flask import session, request, g
+from flask import session, request, g, flash
 
 from app import app
 import config
@@ -27,6 +27,7 @@ def get_new_id():
 def before():
     # time() has to have sub-second resolution for this to work
     g.response_start_time = time.time()
+    g.notes = {}
 
 def shouldDeleteCookie(response):
     # Nothing to delete
@@ -38,6 +39,9 @@ def shouldDeleteCookie(response):
     return False
 
 def shouldSetCookie(response):
+    # There is a cookie already
+    if 'id' in session:
+        return False
     # No cookie for users requesting Do Not Track.
     if request.headers.get('Dnt') == '1':
         return False
@@ -48,9 +52,6 @@ def shouldSetCookie(response):
         return False
     # No cookie for UptimeRobot.
     if request.method == 'HEAD':
-        return False
-    # There is a cookie already
-    if 'id' in session:
         return False
     return True
 
@@ -73,12 +74,14 @@ def after(response):
             'response-time': response_time,
             #'ip' : request.remote_addr, # always 127.0.0.1 because we are behind nginx
             'path': request.path,
+            'args': dict(request.args),
             'method': request.method,
             'session': dict(session),
             'request-headers': dict(request.headers),
             'form': dict(request.form),
             'response-status': response.status_code,
-            'response-headers': dict(response.headers)
+            'response-headers': dict(response.headers), 
+            'notes': g.notes
     }
     log(data)
     return response
