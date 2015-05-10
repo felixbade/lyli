@@ -6,3 +6,4 @@ app = Flask(__name__)
 app.secret_key = config.secret_key
 
 from app import views
+from app import request_logger
