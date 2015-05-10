@@ -6,10 +6,10 @@ Lylin käyttöehdot
 <div>
     <a href="/">Takaisin lyhentämään linkkejä</a>
     <h1>Lylin käyttöehdot</h1>
-    <p class="description">Viimeksi päivitetty: 12.3.2014 (<a href="https://github.com/felixbade/lyli/commits/master/app/templates/terms.html">muokkaushistoria</a>)</p>
+    <p class="description">Viimeksi päivitetty: 12.3.2015 (<a href="https://github.com/felixbade/lyli/commits/master/app/templates/terms.html">muokkaushistoria</a>)</p>
     <p>Hyväksyt nämä ehdot lyhentämällä linkin lyli.fi:ssä (jäljempänä "Lyli").</p>
     <h2>Tarkoitus</h2>
-    <p>Lyli on tarkoitettu linkkien tilapäiseen lyhentämiseen. Lylin tavoite on olla mahdollisimman helppokäyttöinen ja avoin linkinlyhennyspalvelu. Jos jokin asia häiritsee sinua, <a href="mailto:lyhyetlinkit@gmail.com">ota yhteyttä</a>, niin katsotaan voisiko asialle tehdä jotain.</p>
+    <p>Lyli on tarkoitettu linkkien tilapäiseen lyhentämiseen. Lylin tavoite on olla mahdollisimman helppokäyttöinen ja avoin linkinlyhennyspalvelu. Jos jokin asia häiritsee sinua, <a href="mailto:{{email}}">ota yhteyttä</a>, niin katsotaan voisiko asialle tehdä jotain.</p>
     <h2>Käyttäjän vastuu</h2>
     <p>Et saa käyttää Lyliä mihinkään laittomaan etkä yleistä hyvää vastaan. Lyli on tarkoitettu pitkien linkkien lyhentämiseen, ei inhottavien asioiden piilottamiseen.</p>
     <h2>Toiminta</h2>
@@ -24,9 +24,10 @@ Lylin käyttöehdot
         <li>Onnistuiko sivun lataus</li>
         <li>Käyttäjän IP-osoite</li>
         <li><a href="http://user-agents.me/whats-my-user-agent">Selaimen tyyppi</a> (engl. user agent)</li>
-        <li>Uniikki eväste (engl. cookie). Sen avulla kaikki selaimesi tekemät pyynnöt voidaan yhdistää toisiisa. Jos et halua evästettä, valitse selaimesi asetuksista "Älä seuraa" (engl. Do Not Track).</li>
+        <li>Uniikki eväste (engl. cookie). Sen avulla kaikki selaimesi tekemät pyynnöt voidaan yhdistää toisiisa. Jos et halua evästettä Lylissä, valitse selaimesi asetuksista "Älä seuraa" (engl. Do Not Track).</li>
     </ul></p>
     <p>Lisäksi linkkiä lyhentäessä Lyli tallentaa pitkän linkin lokitiedostoihin.</p>
+    {#<p>Nettisivulla näkyvissä sähköpostiosoitteissa on seurantamerkkijono (esimerkiksi {{email}}). Sen tarkoitus on vähentää ja tutkia roskapostia. Seurantamerkkijonon avulla Lyli voi yhdistää lähetetyn sähköpostin ja nettisivun latauksen toisiinsa. Voit pyyhkiä seurantamerkkijonon pois ennen sähköpostin lähettämistä, jos haluat.</p>#}
     <p>Lyli ei tule koskaan tarkoituksella luovuttamaan tai myymään tietojasi kolmansille osapuolille, ellei laki niin vaadi. Sen takia Lyli ei käytä kolmannen osapuolen 
     <a href="http://www.cnet.com/news/facebook-like-button-draws-privacy-scrutiny/">tykkäysnappuloita</a>, 
     <a href="https://www.christopher-parsons.com/google-analytics-privacy-and-legalese/">analytiikkaohjelmia</a> tai mainoksia.
@@ -34,5 +35,6 @@ Lylin käyttöehdot
     <h2>Muuta</h2>
     <p>Lyli varaa oikeuden muuttaa näitä käyttöehtoja milloin tahansa.</p>
     <p>Lyli sijaitsee Hollannissa <a href="http://www.ramnode.com">RamNoden</a> virtuaalipalvelimella.</p>
+    {#<h2><a href="/luinehdot">Luin ehdot kokonaan!</a></h2>#}
 </div>
 {% endblock %}
