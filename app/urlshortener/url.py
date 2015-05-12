@@ -5,9 +5,10 @@ def encodeURL(url):
     if url and not '://' in url and '.' in url:
         url = 'http://' + url
 
+    url = url.strip(' ')
     parsed = urlparse.urlparse(url)
     
-    reserved_characters = ':/?#[]@!$&\'()*+,;="'
+    reserved_characters = ':/?#[]@!$&\'()*+,;="%'
 
     scheme = parsed.scheme
     netloc = parsed.netloc.encode('idna')
