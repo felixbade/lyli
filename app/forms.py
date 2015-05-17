@@ -1,24 +1,36 @@
 # -*- coding: utf-8 -*-
 
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 from wtforms import Form, TextField, RadioField, ValidationError
 from flask import g
 
 from app import backend
+from app.urlshortener.url import encodeURL
 
 def check_url(form, self):
     url = self.data
     if not url:
         g.notes['shortening'] = 'empty url'
         raise ValidationError(u'Tässä ei ole linkkiä.')
+    if len(url) > 2000:
+        g.notes['shortening'] = 'too long url'
+        raise ValidationError(u'Liian pitkä linkki.')
     parsed = urlparse(url)
     if not parsed.scheme in ['http', 'https']:
         g.notes['shortening'] = 'illegal scheme'
         raise ValidationError(u'Voit lyhentää vain http- ja https-linkkejä.')
+    try:
+        encodeURL(url)
+    except:
+        raise ValidationError(u'Linkissä on jotain outoa')
 
 def check_name(form, self):
     name = self.data
+
+    if len(name) > 100:
+        g.notes['shortening'] = 'too long name'
+        raise ValidationError(u'Liian pitkä pääte.')
 
     #if name == 'kissa':
     if backend.exists(name):
@@ -34,7 +46,8 @@ def check_name(form, self):
             '%': u'prosenttimerkkejä',
             ' ': u'sanavälejä',
             '?': u'kysymysmerkkejä',
-            '#': u'risuaitoja'
+            '#': u'risuaitoja',
+            '\\': u'kenoviivoja'
             }
     forbidden_characters_found = []
     for character in name:
