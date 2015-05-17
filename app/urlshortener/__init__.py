@@ -42,7 +42,7 @@ class URLShortener:
             n = self.getNextNameIndex()
             name = getNthName(n)
             if not self.exists(name):
-                return unicode(name)
+                return name
     
     def getNextNameIndex(self):
         n = self.r.incr(self.getRedisKeyForDefaultNameIndex())

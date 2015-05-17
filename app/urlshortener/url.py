@@ -1,22 +1,21 @@
-import urlparse
-import urllib
+from urllib.parse import urlparse, urlunparse, quote_plus, unquote_plus
 
 def encodeURL(url):
     if url and not '://' in url and '.' in url:
         url = 'http://' + url
 
-    parsed = urlparse.urlparse(url)
+    parsed = urlparse(url)
     
     reserved_characters = ':/?#[]@!$&\'()*+,;="'
 
     scheme = parsed.scheme
-    netloc = parsed.netloc.encode('idna')
-    path = urllib.quote_plus(parsed.path.encode('utf-8'), reserved_characters)
+    netloc = parsed.netloc.encode('idna').decode()
+    path = quote_plus(parsed.path, reserved_characters)
     params = parsed.params #urllib.quote_plus(parsed.params, '&=%')
-    query = urllib.quote_plus(parsed.query.encode('utf-8'), reserved_characters)
-    fragment = urllib.quote_plus(parsed.fragment.encode('utf-8'), reserved_characters)
+    query = quote_plus(parsed.query, reserved_characters)
+    fragment = quote_plus(parsed.fragment, reserved_characters)
 
-    return urlparse.urlunparse((scheme, netloc, path, params, query, fragment))
+    return urlunparse((scheme, netloc, path, params, query, fragment))
 
 def decodeURLPath(path):
-    return urllib.unquote_plus(path)
+    return unquote_plus(path)
