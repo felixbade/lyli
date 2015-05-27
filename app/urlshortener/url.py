@@ -6,12 +6,12 @@ def encodeURL(url):
 
     parsed = urlparse(url)
     
-    reserved_characters = ':/?#[]@!$&\'()*+,;="'
+    reserved_characters = ':/?#[]@!$&\'()*+,;="$'
 
     scheme = parsed.scheme
     netloc = parsed.netloc.encode('idna').decode()
     path = quote_plus(parsed.path, reserved_characters)
-    params = parsed.params #urllib.quote_plus(parsed.params, '&=%')
+    params = parsed.params
     query = quote_plus(parsed.query, reserved_characters)
     fragment = quote_plus(parsed.fragment, reserved_characters)
 
