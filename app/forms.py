@@ -2,7 +2,7 @@
 
 from urllib.parse import urlparse
 
-from wtforms import Form, TextField, RadioField, ValidationError
+from wtforms import Form, TextField, RadioField, HiddenField, ValidationError
 from flask import g
 
 from app import backend
@@ -29,8 +29,7 @@ def check_name(form, self):
     name = self.data
 
     if name == '':
-        #name = form.default_name.data
-        return #
+        name = form._fields['default_name'].data # ugly
 
     if len(name) > 100:
         g.notes['shortening'] = 'too long name'
@@ -77,6 +76,6 @@ duration_choices = [
 
 class ShorteningForm(Form):
     url = TextField('url', [check_url])
-    #default_name
+    default_name = HiddenField('default_name')
     name = TextField('name', [check_name])
     duration = RadioField('duration', choices=duration_choices, default='normal')
