@@ -54,7 +54,7 @@ span.notfound {
 
 h1, h2 {
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: lighter;
+    font-weight: 200;
 }
 
 div.notification > h2 {
