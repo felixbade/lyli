@@ -70,8 +70,9 @@ def after(response):
     response_time = now - g.response_start_time
     
     # TODO: possibly error prone!
-    if type(session['id']) == type(bytes()):
-        session['id'] = session['id'].decode()
+    for key in session:
+        if type(session[key]) == type(bytes()):
+            session[key] = session[key].decode()
 
     data = {
             'timestamp' : now,
@@ -87,5 +88,8 @@ def after(response):
             'response-headers': dict(response.headers), 
             'notes': g.notes
     }
-    log(data)
+    try:
+        log(data)
+    except:
+        pass # Don't bother the user if json complains about data types (py2 -> py3 problem)
     return response
