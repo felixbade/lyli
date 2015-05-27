@@ -28,6 +28,10 @@ def check_url(form, self):
 def check_name(form, self):
     name = self.data
 
+    if name == '':
+        #name = form.default_name.data
+        return #
+
     if len(name) > 100:
         g.notes['shortening'] = 'too long name'
         raise ValidationError(u'Liian pitkä pääte.')

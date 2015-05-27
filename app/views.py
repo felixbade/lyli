@@ -15,7 +15,7 @@ def shorten(complicated=False):
     form = ShorteningForm(request.form)
     if form.validate(): # NOTE possibly not thread safe for simultaneous shortenings
         g.notes['shortening'] = 'success'
-        name = form.name.data
+        name = form.name.data or request.form.get('default_name', '')
         url = form.url.data
         duration = form.duration.data
         description = u'Lyhyt linkki vapautuu '
