@@ -68,6 +68,10 @@ def after(response):
     # Not including log write time, which might be significant.
     # We should probably do it on background.
     response_time = now - g.response_start_time
+    
+    # TODO: possibly error prone!
+    if type(session['id']) == type(bytes()):
+        session['id'] = session['id'].decode()
 
     data = {
             'timestamp' : now,

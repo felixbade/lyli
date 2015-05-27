@@ -5,59 +5,57 @@
     <img id="lyli-icon" class="center" src="/lyli.png" alt="Käsin piirretty Lyli"/>
 </div>
 
+{# Successfull shortening #}
 {% if newurl %}
-<div class="notification"><h2>Lyhentäminen onnistui!</h2>
+<div class="notification">
+    <h2>Lyhentäminen onnistui!</h2>
     <a id="newurl" href="http://lyli.fi/{{newurl}}">http://lyli.fi/{{newurl}}</a><br>
-    {% if brief %}
-    <span class="description">Lyhyt linkki vapautuu tunnin päästä, käytettiin sitä tai ei.</span>
-    {% else %}
-    <span class="description">Lyhyt linkki vapautuu kun sitä ei ole käytetty kahteen viikkoon.</span>
-    {% endif %}
+    <span class="description">{{description}}</span>
 </div>
 {% endif %}
 
-{% if nosuchname %}
-<div class="notification"><h2>Linkkiä <span class="notfound">lyli.fi/{{nosuchname}}</span> ei ole olemassa.</h2>
+{# Link/page not found #}
+{% if nosuchlink %}
+<div class="notification">
+    <h2>Linkkiä <span class="notfound">lyli.fi/{{nosuchlink}}</span> ei ole olemassa.</h2>
     <span class="description">Se on saattanut olla joskus olemassa. Linkit vapautuvat automaattisesti.</span>
 </div>
-{% elif nosuchsite %}
-<div class="notification"><h2>Sivua <span class="notfound">lyli.fi{{nosuchsite}}</span> ei ole olemassa.</h2>
+{% elif nosuchpage %}
+<div class="notification">
+    <h2>Sivua <span class="notfound">lyli.fi{{nosuchpage}}</span> ei ole olemassa.</h2>
 </div>
 {% endif %}
 
+{# The url shortening form #}
+{% if complicated %}
+<form method="post" action="/monimutkainen/" novalidate>
+{% else %}
 <form method="post" action="/" novalidate>
+{% endif %}
     <div>
-        <input class="big" type="url" name="url" id="url" placeholder="Sijoita pitkä linkki tähän" value="{{url}}">
-        {% if emptyurl %}
-        <span class="error">Tässä ei ole mitään.</span>
-        {% elif illegalscheme %}
-        <span class="error">Voit lyhentää vain http- ja https-linkkejä.</span>
-        {% elif illegalurl %}
-        <span class="error">Linkissä on jotain outoa.</span>
+        {{ form.url(placeholder="Sijoita pitkä linkki tähän", class="big", type="url") }}
+        {% if form.url.errors %}
+        <span class="error">{{ form.url.errors[0] }}</span>
         {% endif %}
     </div>
     <div>
         <input type="hidden" name="default_name" value="{{default_name}}">
-        <span>lyli.fi/</span><input type="text" name="name" id="name" placeholder="{{default_name}}" value="{{name}}" autocapitalize="off"><br>
-        {% if nameinuse %}
-        <span class="error">lyli.fi/{{nameinuse}} on jo käytössä.</span>
-        {% elif illegalname %}
-        <span class="error">Päätteessä ei saa olla sanavälejä, pisteitä eikä kauttaviivoja.</span>
+        <span>lyli.fi/</span>{{ form.name(placeholder=default_name, autocapitalize="off") }}<br>
+        {% if form.name.errors %}
+        <span class="error">{{ form.name.errors[0] }}</span>
         {% else %}
         <span class="description">Lyhyt linkki, joka vie samalle sivulle kuin pitkä linkki.</span>
         {% endif %}
     </div>
-
-    {#<div>
-        <a href="?showoptions=true"><span class="description">Näytä lisävalinnat</span></a>
-    </div>#}
-
-
-    {#<div>
-        <input type="checkbox" name="brief" id="brief" value="true">
-        <label for="brief">Poista lyhennys tunnin päästä.</label>
+    {% if complicated %}
+    <div>
+        {% for subfield in form.duration %}
+        {{ subfield }}
+        {{ subfield.label }}
+        <br>
+        {% endfor %} 
     </div>
-    #}
+    {% endif %}
     <button type="submit" id="shorten-button">Lyhennä</button>
 </form>
 {% endblock %}
