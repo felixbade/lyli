@@ -50,7 +50,7 @@ def visit(name):
     if url:
         return redirect(url, code=307)
     else:
-        return frontpage(nosuchlink=name)
+        return frontpage(nosuchlink=name, code=404)
 
 @app.errorhandler(404)
 def notfound(error):
