@@ -10,12 +10,13 @@ body {
   font-family: Georgia, serif;
   font-size: 18px;
   margin: 0;
+  word-wrap: break-word;
 }
 .content {
   margin: 1em auto;
   padding: 1.5em 3em;
   max-width: 37em;
-  border: 1px solid #beb6a7;
+  border: 1px solid #c2b499;
   border-radius: 8px;
   background-color: #fff;
 }
@@ -67,7 +68,7 @@ footer {
 }
 div.notification {
   background-color: #ffe0a3;
-  border: 1px solid #e0c285;
+  border: 1px solid #e0c183;
   border-radius: 8px;
   padding: 1.5em;
   margin-bottom: 2em;
@@ -79,15 +80,14 @@ div.notification h2 {
   margin: 0 0 0.2em 0;
 }
 div.notification span {
-  color: #70695c;
+  color: #706e69;
+}
+div.notification span.notfound {
+  text-decoration: underline;
+  color: #d2361e;
 }
 div.notification a {
-  color: #198cb3;
-}
-span.notfonud {
-  text-decoration: underline;
-  color: #c63f2a;
-  word-wrap: break-word;
+  color: #1996ba;
 }
 #newurl {
   margin-top: 0.7em;
@@ -139,7 +139,7 @@ label {
 }
 .error {
   font-size: 14px;
-  color: #d42600;
+  color: #d61d00;
   line-height: 160%;
 }
 button {
@@ -153,7 +153,8 @@ button {
   background-color: #41a441;
 }
 button:hover {
-  bockground-color: #258d25;
+/*background-color: saturate(darken(buttoncolor, 10), 15)*/
+  background-color: #309330;
 }
 @media all and (max-width: 48em) {
   .content {
