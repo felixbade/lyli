@@ -1,201 +1,183 @@
+/* Stylesheet for lyli.fi by Felix Bade */
 html {
-    -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
 }
-
 body {
-    background-color: hsl(40, 25%, 80%);
-    color: #333;
-    font-family: georgia;
-    font-size: 18px;
-    margin: 0;
+  background-color: #d9d0bf;
+  color: #333;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  margin: 0;
 }
-
 .content {
-    margin: 1em auto;
-    padding: 1.5em 3em;
-    max-width: 37em;
-    border: 1px solid hsl(40, 15%, 70%);
-    border-radius: 8px;
-    background-color: white;
-    /*background-color: hsl(50, 30%, 95%);*/
+  margin: 1em auto;
+  padding: 1.5em 3em;
+  max-width: 37em;
+  border: 1px solid #beb6a7;
+  border-radius: 8px;
+  background-color: #fff;
 }
-
-img {
-    margin-bottom: 2em;
-    display: block;
+form,
+div {
+  margin: 1em 0;
 }
-
-#lyli-icon {
-    height: 120px;
+h1,
+h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 200;
 }
-
-.center { 
-    margin-left: auto;
-    margin-right: auto;
+p,
+li {
+  font-size: 16px;
 }
-
-div.notification {
-    background-color: hsl(40, 100%, 82%);
-    border: 1px solid hsl(40, 60%, 70%);
-    border-radius: 8px;
-    padding: 1.5em;
-    margin-bottom: 2em;
-}
-
-div.notification>span {
-    color: hsl(40, 10%, 40%);
-}
-
-span.notfound {
-    text-decoration: underline;
-    color: hsl(8, 65%, 47%);
-    word-wrap: break-word;
-}
-
-h1, h2 {
-    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: 200;
-}
-
-div.notification > h2 {
-    font-family: georgia;
-    font-weight: normal;
-    font-size: 23px;
-    margin: 0 0 0.2em 0;
-}
-
-#newurl {
-    margin-top: 0.7em;
-}
-
-p, li {
-    font-size: 16px;
-}
-
-form, div {
-    margin: 1em 0;
-}
-
-input[type=text], input[type=url] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    padding: 3px 7px;
-    width: 100%;
-    max-width: 100%;
-    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-size: 18px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    color: #333;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-input.big {
-    margin: 3px 0;
-    padding: 9px 12px;
-}
-
-::-webkit-input-placeholder { color: #aaa; }
-::-moz-placeholder { color: #aaa; } /* firefox 19+ */
-:-ms-input-placeholder { color: #aaa; } /* ie */
-input:-moz-placeholder { color: #aaa; }
-
-
-label {
-    font-size: 14px;
-}
-
-#name, input.shorter {
-    width: 200px;
-    margin: 3px;
-}
-
-#name {
-    max-width: calc(100% - 4em);
-}
-
-button {
-    padding: 0.9em;
-    width: 200px;
-    margin: 0.1em 0;
-    border-radius: 0.3em;
-    border: none;
-    font-size: 18px;
-    color: white;
-    background-color: hsl(120, 43%, 45%);
-}
-
-button:hover {
-    background-color: hsl(120, 58%, 35%);
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-    color: hsl(195, 100%, 37%);
-}
-
-div.notification>a {
-    color: hsl(195, 75%, 40%);
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.error {
-    font-size: 14px;
-    color: #D42600;
-    line-height: 160%;
-}
-
-.description, footer, footer>a {
-    font-size: 14px;
-    color: #777;
-    line-height: 160%;
-}
-
-footer {
-    text-align: center;
-}
-
 pre {
-    white-space: pre-wrap;
-    display: block;
-    padding: 0.5em 1em;
-    border: 1px solid #bebab0;
-    border-radius: 0.3em;
-    background-color: #f2efeb;
+  white-space: pre-wrap;
+  display: block;
+  padding: 0.5em 1em;
+  border: 1px solid #bebab0;
+  border-radius: 0.3em;
+  background-color: #f2efeb;
 }
-
+a {
+  color: #008ebd;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+img {
+  margin-bottom: 2em;
+  display: block;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.description,
+footer,
+footer > a {
+  font-size: 14px;
+  color: #777;
+  line-height: 160%;
+}
+footer {
+  text-align: center;
+}
+div.notification {
+  background-color: #ffe0a3;
+  border: 1px solid #e0c285;
+  border-radius: 8px;
+  padding: 1.5em;
+  margin-bottom: 2em;
+}
+div.notification h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: 23px;
+  margin: 0 0 0.2em 0;
+}
+div.notification span {
+  color: #70695c;
+}
+div.notification a {
+  color: #198cb3;
+}
+span.notfonud {
+  text-decoration: underline;
+  color: #c63f2a;
+  word-wrap: break-word;
+}
+#newurl {
+  margin-top: 0.7em;
+}
+#lyli-icon {
+  height: 120px;
+}
+input[type=text],
+input[type=url] {
+  padding: 3px 7px;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 18px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  box-sizing: border-box;
+}
+input.big {
+  margin: 3px 0;
+  padding: 9px 12px;
+}
+#name,
+input.shorter {
+  width: 200px;
+  margin: 3px;
+}
+#name {
+  max-width: calc(100% - 4em);
+}
+::-webkit-input-placeholder {
+  color: #aaa;
+}
+::-moz-placeholder {
+  color: #aaa;
+}
+:-ms-input-placeholder {
+  color: #aaa;
+}
+::placeholder {
+  color: #aaa;
+}
+label {
+  font-size: 14px;
+}
+.error {
+  font-size: 14px;
+  color: #d42600;
+  line-height: 160%;
+}
+button {
+  padding: 0.9em;
+  margin: 0.1em 0;
+  width: 200px;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  color: #fff;
+  background-color: #41a441;
+}
+button:hover {
+  bockground-color: #258d25;
+}
 @media all and (max-width: 48em) {
-    .content {
-        margin: 0;
-        border: none;
-        border-radius: 0;
-        box-shadow: 0 0;
-    }
+  .content {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 0;
+  }
 }
-
 @media all and (max-width: 30em) {
-    .content {
-        padding: 1em;
-    }
-    img {
-        margin-bottom: 1.3em;
-    }
-    #lyli-icon {
-        height: 90px;
-    }
-    button {
-        width: 100%;
-    }
-
-    div.notification {
-        padding: 1.2em 1em;
-    }
+  .content {
+    padding: 1em;
+  }
+  img {
+    margin-bottom: 1.3em;
+  }
+  #lyli-icon {
+    height: 90px;
+  }
+  button {
+    width: 100%;
+  }
+  div.notification {
+    padding: 1.2em 1em;
+  }
 }
+
