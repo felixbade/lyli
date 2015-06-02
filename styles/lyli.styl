@@ -2,12 +2,20 @@
 
 sansfont = "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
 seriffont = Georgia, serif
+
 textcolor = #333
 bgcolor = hsl(40, 25%, 80%)
-contentbordercolor = hsl(40, 15%, 70%)
+contentbgcolor = white
 buttoncolor = hsl(120, 43%, 45%)
-buttonactivecolor = hsl(120, 58%, 35%)
 buttontextcolor = white
+linkcolor = hsl(195, 100%, 37%)
+notificationbgcolor = hsl(40, 100%, 82%)
+errorcolor = hsl(8, 100%, 42%)
+notfoundcolor = hsl(8, 75%, 47%)
+
+darkenamount = 15%
+
+
 
 html
     text-size-adjust: 100%
@@ -18,14 +26,15 @@ body
     font-family: seriffont
     font-size: 18px
     margin: 0
+    word-wrap: break-word
 
 .content
     margin: 1em auto
     padding: 1.5em 3em
     max-width: 37em
-    border: 1px solid contentbordercolor
+    border: 1px solid darken(bgcolor, darkenamount)
     border-radius: 8px
-    background-color: white
+    background-color: contentbgcolor
 
 form, div
     margin: 1em 0
@@ -48,7 +57,7 @@ pre
     background-color: #f2efeb
 
 a
-    color: hsl(195, 100%, 37%)
+    color: linkcolor
     text-decoration: none
     &:hover
         text-decoration: underline
@@ -72,8 +81,8 @@ footer
 
 
 div.notification
-    background-color: hsl(40, 100%, 82%)
-    border: 1px solid hsl(40, 60%, 70%)
+    background-color: notificationbgcolor
+    border: 1px solid desaturate(darken(notificationbgcolor, darkenamount), 40%)
     border-radius: 8px
     padding: 1.5em
     margin-bottom: 2em
@@ -84,14 +93,12 @@ div.notification
         font-size: 23px
         margin: 0 0 0.2em 0
     span
-        color: hsl(40, 10%, 40%)
+        color: darken(mix(#777, notificationbgcolor, 90%), darkenamount)
+    span.notfound
+        text-decoration: underline
+        color: notfoundcolor
     a
-        color: hsl(195, 75%, 40%)
-
-span.notfonud
-    text-decoration: underline
-    color: hsl(8, 65%, 47%)
-    word-wrap: break-word
+        color: mix(linkcolor, notificationbgcolor, 90%)
 
 #newurl
     margin-top: 0.7em
@@ -132,7 +139,7 @@ label
 
 .error
     font-size: 14px
-    color: #D42600
+    color: errorcolor
     line-height: 160%
 
 
@@ -147,7 +154,8 @@ button
     color: buttontextcolor
     background-color: buttoncolor
     &:hover
-        bockground-color: buttonactivecolor
+        /*background-color: saturate(darken(buttoncolor, 10), 15)*/
+        background-color: saturate(darken(buttoncolor, darkenamount), 20%)
 
 
 
