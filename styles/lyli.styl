@@ -1,0 +1,175 @@
+/* Stylesheet for lyli.fi by Felix Bade */
+
+sansfont = "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+seriffont = Georgia, serif
+textcolor = #333
+bgcolor = hsl(40, 25%, 80%)
+contentbordercolor = hsl(40, 15%, 70%)
+buttoncolor = hsl(120, 43%, 45%)
+buttonactivecolor = hsl(120, 58%, 35%)
+buttontextcolor = white
+
+html
+    text-size-adjust: 100%
+
+body
+    background-color: bgcolor
+    color: textcolor
+    font-family: seriffont
+    font-size: 18px
+    margin: 0
+
+.content
+    margin: 1em auto
+    padding: 1.5em 3em
+    max-width: 37em
+    border: 1px solid contentbordercolor
+    border-radius: 8px
+    background-color: white
+
+form, div
+    margin: 1em 0
+
+
+
+h1, h2
+    font-family: sansfont
+    font-weight: 200
+
+p, li
+    font-size: 16px
+
+pre
+    white-space: pre-wrap
+    display: block
+    padding: 0.5em 1em
+    border: 1px solid #bebab0
+    border-radius: 0.3em
+    background-color: #f2efeb
+
+a
+    color: hsl(195, 100%, 37%)
+    text-decoration: none
+    &:hover
+        text-decoration: underline
+
+img
+    margin-bottom: 2em
+    display: block
+
+.center
+    margin-left: auto
+    margin-right: auto
+
+.description, footer, footer > a
+    font-size: 14px
+    color: #777
+    line-height: 160%
+
+footer
+    text-align: center
+
+
+
+div.notification
+    background-color: hsl(40, 100%, 82%)
+    border: 1px solid hsl(40, 60%, 70%)
+    border-radius: 8px
+    padding: 1.5em
+    margin-bottom: 2em
+
+    h2
+        font-family: seriffont
+        font-weight: normal
+        font-size: 23px
+        margin: 0 0 0.2em 0
+    span
+        color: hsl(40, 10%, 40%)
+    a
+        color: hsl(195, 75%, 40%)
+
+span.notfonud
+    text-decoration: underline
+    color: hsl(8, 65%, 47%)
+    word-wrap: break-word
+
+#newurl
+    margin-top: 0.7em
+
+#lyli-icon
+    height: 120px
+
+
+
+input[type=text], input[type=url]
+    padding: 3px 7px
+    width: 100%
+    max-width: @width
+    border-radius: 4px
+    border: 1px solid #ccc
+    color: textcolor
+    font-family: sansfont
+    font-size: 18px
+    appearance: none
+    box-sizing: border-box
+
+input.big
+    margin: 3px 0
+    padding: 9px 12px
+
+#name, input.shorter
+    width: 200px
+    margin: 3px
+
+#name
+    max-width: calc(100% - 4em)
+
+::placeholder
+    color: #aaa
+
+label
+    font-size: 14px
+
+.error
+    font-size: 14px
+    color: #D42600
+    line-height: 160%
+
+
+
+button
+    padding: 0.9em
+    margin: 0.1em 0
+    width: 200px
+    border-radius: 5px
+    border: none
+    font-size: 18px
+    color: buttontextcolor
+    background-color: buttoncolor
+    &:hover
+        bockground-color: buttonactivecolor
+
+
+
+@media all and (max-width: 48em)
+    .content
+        margin: 0
+        border: none
+        border-radius: 0
+        box-shadow: 0 0
+
+@media all and (max-width: 30em)
+    .content
+        padding: 1em
+
+    img
+        margin-bottom: 1.3em
+    
+    #lyli-icon 
+        height: 90px
+    
+    button 
+        width: 100%
+    
+    div.notification 
+        padding: 1.2em 1em
