@@ -5,7 +5,7 @@ html {
           text-size-adjust: 100%;
 }
 body {
-  background-color: #d9d0bf;
+  background-color: #ded6ba;
   color: #333;
   font-family: Georgia, serif;
   font-size: 18px;
@@ -16,7 +16,7 @@ body {
   margin: 1em auto;
   padding: 1.5em 3em;
   max-width: 37em;
-  border: 1px solid #c2b499;
+  border: 1px solid #cabe91;
   border-radius: 8px;
   background-color: #fff;
 }
@@ -84,10 +84,10 @@ div.notification span {
 }
 div.notification span.notfound {
   text-decoration: underline;
-  color: #d2361e;
+  color: #d23f1e;
 }
 div.notification a {
-  color: #1996ba;
+  color: #1787a7;
 }
 #newurl {
   margin-top: 0.7em;
