@@ -5,7 +5,7 @@ html {
           text-size-adjust: 100%;
 }
 body {
-  background-color: #dcd6b7;
+  background-color: #cfd590;
   color: #333;
   font-family: Georgia, serif;
   font-size: 18px;
@@ -16,9 +16,9 @@ body {
   margin: 1em auto;
   padding: 1.5em 3em;
   max-width: 37em;
-  border: 1px solid #c9bf8e;
+  border: 1px solid #bec669;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #fcfce8;
 }
 form,
 div {
