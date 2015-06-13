@@ -5,7 +5,7 @@ html {
           text-size-adjust: 100%;
 }
 body {
-  background-color: #c9d590;
+  background-color: #bace7e;
   color: #333;
   font-family: Georgia, serif;
   font-size: 18px;
@@ -16,7 +16,7 @@ body {
   margin: 1em auto;
   padding: 1.5em 3em;
   max-width: 37em;
-  border: 1px solid #b7c669;
+  border: 1px solid #a4be55;
   border-radius: 8px;
   background-color: #f9fce8;
 }
@@ -68,7 +68,7 @@ footer {
 }
 div.notification {
   background-color: #ffe0a3;
-  border: 1px solid #e0c183;
+  border: 1px solid #debe7d;
   border-radius: 8px;
   padding: 1.5em;
   margin-bottom: 2em;
@@ -80,7 +80,7 @@ div.notification h2 {
   margin: 0 0 0.2em 0;
 }
 div.notification span {
-  color: #706e69;
+  color: #6e6b66;
 }
 div.notification span.notfound {
   text-decoration: underline;
@@ -154,7 +154,7 @@ button {
 }
 button:hover {
 /*background-color: saturate(darken(buttoncolor, 10), 15)*/
-  background-color: #309330;
+  background-color: #2e902e;
 }
 @media all and (max-width: 48em) {
   .content {
