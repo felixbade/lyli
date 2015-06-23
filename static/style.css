@@ -143,12 +143,12 @@ label {
   line-height: 160%;
 }
 button {
-  padding: 0.9em;
   margin: 0.1em 0;
   width: 200px;
+  height: 54px;
   border-radius: 5px;
   border: none;
-  font-size: 18px;
+  font-size: 19px;
   color: #fff;
   background-color: #41a441;
 }
