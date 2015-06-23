@@ -17,7 +17,7 @@ body {
   padding: 1.5em 3em;
   max-width: 37em;
   border: 1px solid #a4be55;
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: #fafae1;
 }
 form,
@@ -146,7 +146,7 @@ button {
   margin: 0.1em 0;
   width: 200px;
   height: 54px;
-  border-radius: 5px;
+  border-radius: 6px;
   border: none;
   font-size: 19px;
   color: #fff;
