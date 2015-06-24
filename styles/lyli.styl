@@ -1,7 +1,6 @@
 /* Stylesheet for lyli.fi by Felix Bade */
 
-sansfont = "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
-seriffont = "Slabo 13px", Georgia, serif
+font = "Slabo 13px", Georgia, serif
 
 textcolor = #333
 bgcolor = hsl(75, 45%, 65%)
@@ -23,7 +22,7 @@ html
 body
     background-color: bgcolor
     color: textcolor
-    font-family: seriffont
+    font-family: font
     font-size: 18px
     margin: 0
     word-wrap: break-word
@@ -42,11 +41,12 @@ form, div
 
 
 h1, h2
-    font-family: sansfont
+    font-family: font
     font-weight: 500
 
 p, li
     font-size: 16px
+    line-height: 160%
 
 pre
     white-space: pre-wrap
@@ -88,7 +88,7 @@ div.notification
     margin-bottom: 2em
 
     h2
-        font-family: seriffont
+        font-family: font
         font-weight: normal
         font-size: 23px
         margin: 0 0 0.2em 0
@@ -115,7 +115,7 @@ input[type=text], input[type=url]
     border-radius: 4px
     border: 1px solid #ccc
     color: textcolor
-    font-family: sansfont
+    font-family: font
     font-size: 18px
     appearance: none
     box-sizing: border-box
@@ -150,7 +150,7 @@ button
     height: 54px
     border-radius: 6px
     border: none
-    font-family: seriffont
+    font-family: font
     font-size: 18px
     color: buttontextcolor
     background-color: buttoncolor
