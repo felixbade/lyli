@@ -27,7 +27,7 @@ div {
 h1,
 h2 {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
 }
 p,
 li {
@@ -67,8 +67,8 @@ footer {
   text-align: center;
 }
 div.notification {
-  background-color: #ffe0a3;
-  border: 1px solid #debe7d;
+  background-color: #ffe7a3;
+  border: 1px solid #dec57d;
   border-radius: 8px;
   padding: 1.5em;
   margin-bottom: 2em;
@@ -80,7 +80,7 @@ div.notification h2 {
   margin: 0 0 0.2em 0;
 }
 div.notification span {
-  color: #6e6b66;
+  color: #6e6c66;
 }
 div.notification span.notfound {
   text-decoration: underline;
@@ -148,6 +148,7 @@ button {
   height: 54px;
   border-radius: 6px;
   border: none;
+  font-family: "Slabo 13px", Georgia, serif;
   font-size: 18px;
   color: #fff;
   background-color: #41a441;
