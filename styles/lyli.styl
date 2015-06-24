@@ -1,7 +1,7 @@
 /* Stylesheet for lyli.fi by Felix Bade */
 
 sansfont = "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
-seriffont = Georgia, serif
+seriffont = "Slabo 13px", Georgia, serif
 
 textcolor = #333
 bgcolor = hsl(75, 45%, 65%)
@@ -43,7 +43,7 @@ form, div
 
 h1, h2
     font-family: sansfont
-    font-weight: 200
+    font-weight: 400
 
 p, li
     font-size: 16px
@@ -181,3 +181,9 @@ button
     
     div.notification 
         padding: 1.2em 1em
+
+@font-face
+    font-family: 'Slabo 13px'
+    font-style: normal
+    font-weight: 400
+    src: local('Slabo 13px'), local('Slabo13px-Regular'), url('/Slabo13px-Regular.ttf') format('truetype')

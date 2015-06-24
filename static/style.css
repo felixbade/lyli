@@ -7,7 +7,7 @@ html {
 body {
   background-color: #bace7e;
   color: #333;
-  font-family: Georgia, serif;
+  font-family: "Slabo 13px", Georgia, serif;
   font-size: 18px;
   margin: 0;
   word-wrap: break-word;
@@ -27,7 +27,7 @@ div {
 h1,
 h2 {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 200;
+  font-weight: 400;
 }
 p,
 li {
@@ -74,7 +74,7 @@ div.notification {
   margin-bottom: 2em;
 }
 div.notification h2 {
-  font-family: Georgia, serif;
+  font-family: "Slabo 13px", Georgia, serif;
   font-weight: normal;
   font-size: 23px;
   margin: 0 0 0.2em 0;
@@ -180,5 +180,11 @@ button:hover {
   div.notification {
     padding: 1.2em 1em;
   }
+}
+@font-face {
+  font-family: 'Slabo 13px';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Slabo 13px'), local('Slabo13px-Regular'), url("/Slabo13px-Regular.ttf") format('truetype');
 }
 
