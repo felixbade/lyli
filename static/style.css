@@ -5,7 +5,7 @@ html {
           text-size-adjust: 100%;
 }
 body {
-  background-color: #bace7e;
+  background-color: #a7c671;
   color: #333;
   font-family: "Slabo 13px", Georgia, serif;
   font-size: 18px;
@@ -16,7 +16,7 @@ body {
   margin: 1em auto;
   padding: 1.5em 3em;
   max-width: 37em;
-  border: 1px solid #a4be55;
+  border: 1px solid #90b74b;
   border-radius: 10px;
   background-color: #fafae1;
 }
@@ -43,7 +43,7 @@ pre {
   background-color: #f2efeb;
 }
 a {
-  color: #008ebd;
+  color: #007ebd;
   text-decoration: none;
 }
 a:hover {
@@ -68,8 +68,8 @@ footer {
   text-align: center;
 }
 div.notification {
-  background-color: #ffe7a3;
-  border: 1px solid #dec57d;
+  background-color: #ffe3a3;
+  border: 1px solid #dec17d;
   border-radius: 8px;
   padding: 1.5em;
   margin-bottom: 2em;
@@ -81,14 +81,14 @@ div.notification h2 {
   margin: 0 0 0.2em 0;
 }
 div.notification span {
-  color: #6e6c66;
+  color: #6e6b66;
 }
 div.notification span.notfound {
   text-decoration: underline;
   color: #d84218;
 }
 div.notification a {
-  color: #1787a7;
+  color: #007ebd;
 }
 #newurl {
   margin-top: 0.7em;
