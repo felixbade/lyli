@@ -45,14 +45,6 @@ def shouldSetCookie(response):
     # No cookie for users requesting Do Not Track.
     if request.headers.get('Dnt') == '1':
         return False
-    # We should not put cookie if a new user just click's a short link
-    # because she/he would have no way of knowing they are being tracked.
-    # Or I don't know, for example bit.ly does exacly that any way.
-    if response.status_code == 307:
-        return False
-    # No cookie for UptimeRobot.
-    if request.method == 'HEAD':
-        return False
     return True
 
 @app.after_request
