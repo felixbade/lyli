@@ -61,7 +61,7 @@ img {
 footer,
 footer > a {
   font-size: 14px;
-  color: #777;
+  color: #78786d;
   line-height: 160%;
 }
 footer {
@@ -81,7 +81,7 @@ div.notification h2 {
   margin: 0 0 0.2em 0;
 }
 div.notification span {
-  color: #6e6b66;
+  color: #6e6c5f;
 }
 div.notification span.notfound {
   text-decoration: underline;

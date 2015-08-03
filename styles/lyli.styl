@@ -11,6 +11,7 @@ linkcolor = hsl(200, 100%, 37%)
 notificationbgcolor = hsl(42, 100%, 82%)
 errorcolor = hsl(8, 100%, 42%)
 notfoundcolor = hsl(13, 80%, 47%)
+fadedtextcolor = hsl(60, 5%, 45%)
 
 darkenamount = 17%
 
@@ -72,7 +73,7 @@ img
 
 .description, footer, footer > a
     font-size: 14px
-    color: #777
+    color: fadedtextcolor
     line-height: 160%
 
 footer
@@ -93,7 +94,7 @@ div.notification
         font-size: 23px
         margin: 0 0 0.2em 0
     span
-        color: darken(mix(#777, notificationbgcolor, 90%), darkenamount)
+        color: darken(mix(fadedtextcolor, notificationbgcolor, 90%), darkenamount)
     span.notfound
         text-decoration: underline
         color: notfoundcolor
