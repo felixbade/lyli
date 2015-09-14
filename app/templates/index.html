@@ -8,8 +8,8 @@
 {# Successfull shortening #}
 {% if newurl %}
 <div class="notification">
-    <h2>Lyhentäminen onnistui!</h2>
-    <a id="newurl" href="http://lyli.fi/{{newurl}}">http://lyli.fi/{{newurl}}</a><br>
+    <h2>Lyhentäminen onnistui.</h2>
+    <a id="newurl" href="http://lyli.fi/{{newurl}}">lyli.fi/{{newurl}}</a><br>
     <span class="description">{{description}}</span>
 </div>
 {% endif %}
@@ -33,7 +33,7 @@
 <form method="post" action="/" novalidate>
 {% endif %}
     <div>
-        {{ form.url(placeholder="Sijoita pitkä linkki tähän", class="big", type="url") }}
+        {{ form.url(placeholder="Sijoita pitkä linkki tähän", class="big", type="url", autofocus="autofocus") }}
         {% if form.url.errors %}
         <span class="error">{{ form.url.errors[0] }}</span>
         {% endif %}

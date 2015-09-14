@@ -91,7 +91,8 @@ div.notification a {
   color: #007ebd;
 }
 #newurl {
-  margin-top: 0.7em;
+  font-size: 32px;
+  line-height: 160%;
 }
 #lyli-icon {
   height: 120px;
