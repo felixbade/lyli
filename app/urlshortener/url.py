@@ -1,10 +1,11 @@
 from urllib.parse import urlparse, urlunparse, quote_plus, unquote_plus
 
 def encodeURL(url):
-    if url and not '://' in url and '.' in url:
+    url = url.strip(' ')
+    
+    if url and '://' not in url and '.' in url:
         url = 'http://' + url
 
-    url = url.strip(' ')
     parsed = urlparse(url)
     
     reserved_characters = ':/?#[]@!$&\'()*+,;="%'
