@@ -16,14 +16,14 @@ def check_url(form, self):
     if len(url) > 2000:
         g.notes['shortening'] = 'too long url'
         raise ValidationError(u'Liian pitkä linkki.')
+    try:
+        url = encodeURL(url)
+    except:
+        raise ValidationError(u'Linkissä on jotain outoa')
     parsed = urlparse(url)
     if not parsed.scheme in ['http', 'https']:
         g.notes['shortening'] = 'illegal scheme'
         raise ValidationError(u'Voit lyhentää vain http- ja https-linkkejä.')
-    try:
-        encodeURL(url)
-    except:
-        raise ValidationError(u'Linkissä on jotain outoa')
 
 def check_name(form, self):
     name = self.data
@@ -35,7 +35,6 @@ def check_name(form, self):
         g.notes['shortening'] = 'too long name'
         raise ValidationError(u'Liian pitkä pääte.')
 
-    #if name == 'kissa':
     if backend.exists(name):
         g.notes['shortening'] = 'name in use'
         raise ValidationError(u'lyli.fi/%s on jo käytössä.' % name)
