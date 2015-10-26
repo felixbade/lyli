@@ -8,7 +8,7 @@ def encodeURL(url):
 
     parsed = urlparse(url)
     
-    reserved_characters = ':/?#[]@!$&\'()*+,;="%'
+    reserved_characters = ':/?#[]@!$&\'()*+,;="%~'
 
     scheme = parsed.scheme
     netloc = parsed.netloc.encode('idna').decode()
