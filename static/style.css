@@ -5,8 +5,8 @@ html {
           text-size-adjust: 100%;
 }
 body {
-  background-color: #95c374;
-  color: #333;
+  background-color: #53402d;
+  color: #ffe14d;
   font-family: "Slabo 13px", Georgia, serif;
   font-size: 18px;
   margin: 0;
@@ -16,9 +16,9 @@ body {
   margin: 1em auto;
   padding: 1.5em 3em;
   max-width: 37em;
-  border: 1px solid #79b34f;
+  border: 1px solid #7d6043;
   border-radius: 10px;
-  background-color: #fbf5da;
+  background-color: #1f1f1f;
 }
 form,
 div {
@@ -43,7 +43,7 @@ pre {
   background-color: #f2efeb;
 }
 a {
-  color: #007ebd;
+  color: #b27de8;
   text-decoration: none;
 }
 a:hover {
@@ -61,15 +61,15 @@ img {
 footer,
 footer > a {
   font-size: 14px;
-  color: #78786d;
+  color: #c50;
   line-height: 160%;
 }
 footer {
   text-align: center;
 }
 div.notification {
-  background-color: #ffe3a3;
-  border: 1px solid #dec17d;
+  background-color: #282843;
+  border: 1px solid #4b4b65;
   border-radius: 8px;
   padding: 1.5em;
   margin-bottom: 2em;
@@ -81,14 +81,14 @@ div.notification h2 {
   margin: 0 0 0.2em 0;
 }
 div.notification span {
-  color: #6e6c5f;
+  color: #ef6608;
 }
 div.notification span.notfound {
   text-decoration: underline;
-  color: #d84218;
+  color: #e64619;
 }
 div.notification a {
-  color: #007ebd;
+  color: #b27de8;
 }
 #newurl {
   font-size: 32px;
@@ -103,8 +103,9 @@ input[type=url] {
   width: 100%;
   max-width: 100%;
   border-radius: 4px;
-  border: 1px solid #ccc;
-  color: #333;
+  border: 1px solid #c50;
+  color: #ffe14d;
+  background-color: #1f1f1f;
   font-family: "Slabo 13px", Georgia, serif;
   font-size: 18px;
   -webkit-appearance: none;
@@ -125,23 +126,33 @@ input.shorter {
   max-width: calc(100% - 4em);
 }
 ::-webkit-input-placeholder {
-  color: #aaa;
+  color: #c50;
 }
 ::-moz-placeholder {
-  color: #aaa;
+  color: #c50;
 }
 :-ms-input-placeholder {
-  color: #aaa;
+  color: #c50;
 }
 ::placeholder {
-  color: #aaa;
+  color: #c50;
+}
+::-moz-selection {
+  background: #e66f19;
+}
+::selection {
+  background: #e66f19;
+}
+:focus {
+  outline: none !important;
+  box-shadow: 0 0 12px #ff6;
 }
 label {
   font-size: 14px;
 }
 .error {
   font-size: 14px;
-  color: #d61d00;
+  color: #ff0015;
   line-height: 160%;
 }
 button {
@@ -152,12 +163,12 @@ button {
   border: none;
   font-family: "Slabo 13px", Georgia, serif;
   font-size: 18px;
-  color: #fff;
-  background-color: #41a441;
+  color: #ff6;
+  background-color: #c50;
 }
 button:hover {
-/*background-color: saturate(darken(buttoncolor, 10), 15)*/
-  background-color: #2e902e;
+/*background-color: saturate(lighten(buttoncolor, 10), 15)*/
+  background-color: #ff6700;
 }
 @media all and (max-width: 48em) {
   .content {

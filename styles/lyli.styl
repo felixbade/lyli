@@ -2,18 +2,23 @@
 
 font = "Slabo 13px", Georgia, serif
 
-textcolor = #333
-bgcolor = hsl(95, 40%, 61%)
-contentbgcolor = hsl(50, 80%, 92%)
-buttoncolor = hsl(120, 43%, 45%)
-buttontextcolor = white
-linkcolor = hsl(200, 100%, 37%)
-notificationbgcolor = hsl(42, 100%, 82%)
-errorcolor = hsl(8, 100%, 42%)
-notfoundcolor = hsl(13, 80%, 47%)
-fadedtextcolor = hsl(60, 5%, 45%)
+textcolor = hsl(50, 100%, 65%)
+bgcolor = hsl(30, 30%, 25%)
+contentbgcolor = hsl(220, 0%, 12%)
+buttoncolor = hsl(25, 100%, 40%)
+buttontextcolor = hsl(60, 100%, 70%)
+linkcolor = hsl(270, 70%, 70%)
+notificationbgcolor = hsl(240, 25%, 21%)
+errorcolor = hsl(355, 100%, 50%)
+notfoundcolor = hsl(13, 80%, 50%)
+fadedtextcolor = hsl(25, 100%, 40%)
+inputbgcolor = contentbgcolor /* normally white */
+selectioncolor = hsl(25, 80%, 50%) /* normally default */
+inputbordercolor = hsl(25, 100%, 40%) /* normally #ccc */
+placeholdercolor = hsl(25, 100%, 40%) /* normally #aaa */
+focuscolor = buttontextcolor
 
-darkenamount = 17%
+lightenamount = 17%
 
 
 
@@ -32,7 +37,7 @@ body
     margin: 1em auto
     padding: 1.5em 3em
     max-width: 37em
-    border: 1px solid darken(bgcolor, darkenamount)
+    border: 1px solid lighten(bgcolor, lightenamount)
     border-radius: 10px
     background-color: contentbgcolor
 
@@ -83,7 +88,7 @@ footer
 
 div.notification
     background-color: notificationbgcolor
-    border: 1px solid desaturate(darken(notificationbgcolor, darkenamount), 40%)
+    border: 1px solid desaturate(lighten(notificationbgcolor, lightenamount), 40%)
     border-radius: 8px
     padding: 1.5em
     margin-bottom: 2em
@@ -94,12 +99,12 @@ div.notification
         font-size: 23px
         margin: 0 0 0.2em 0
     span
-        color: darken(mix(fadedtextcolor, notificationbgcolor, 90%), darkenamount)
+        color: lighten(mix(fadedtextcolor, notificationbgcolor, 90%), lightenamount)
     span.notfound
         text-decoration: underline
         color: notfoundcolor
     a
-        //color: darken(mix(linkcolor, notificationbgcolor, 90%), 10%)
+        //color: lighten(mix(linkcolor, notificationbgcolor, 90%), 10%)
         color: linkcolor
 
 #newurl
@@ -116,8 +121,9 @@ input[type=text], input[type=url]
     width: 100%
     max-width: @width
     border-radius: 4px
-    border: 1px solid #ccc
+    border: 1px solid inputbordercolor
     color: textcolor
+    background-color: inputbgcolor
     font-family: font
     font-size: 18px
     appearance: none
@@ -135,7 +141,14 @@ input.big
     max-width: calc(100% - 4em)
 
 ::placeholder
-    color: #aaa
+    color: placeholdercolor
+
+::selection
+    background: selectioncolor
+
+:focus
+    outline: none !important
+    box-shadow: 0 0 12px focuscolor
 
 label
     font-size: 14px
@@ -158,8 +171,8 @@ button
     color: buttontextcolor
     background-color: buttoncolor
     &:hover
-        /*background-color: saturate(darken(buttoncolor, 10), 15)*/
-        background-color: saturate(darken(buttoncolor, darkenamount), 20%)
+        /*background-color: saturate(lighten(buttoncolor, 10), 15)*/
+        background-color: saturate(lighten(buttoncolor, lightenamount), 20%)
 
 
 
