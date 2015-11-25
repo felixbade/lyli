@@ -5,7 +5,8 @@ def removeControlCharacters(string):
     return ''.join(character for character in string if unicodedata.category(character)[0] != 'C')
 
 # j, l, o and u are not present due to unreadable handwriting
-name_characters = 'abcdefghikmnpqrstvwxyz'
+# people confuse g and q
+name_characters = 'abcdefghikmnprstvwxyz'
 
 def getRandomName(length=4):
     return ''.join(random.choice(name_characters) for x in range(length))
