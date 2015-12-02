@@ -12,7 +12,6 @@ class URLShortener:
         self.namespace = 'lyli'
 
     def shorten(self, url, name, begin_ttl, click_ttl):
-        name = name.lower()
         url = encodeURL(url)
         existing_url = self.get(name)
         if existing_url is None:
@@ -58,7 +57,6 @@ class URLShortener:
         return url is not None
 
     def get(self, name):
-        name = name.lower()
         url = self.r.get(self.getRedisKeyForURL(name))
         return url
 
@@ -105,13 +103,13 @@ class URLShortener:
             self.r.expire(key, ttl)
 
     def getRedisKeyForURL(self, name):
-        return self.getRedisKey('url', name)
+        return self.getRedisKey('url', name.lower())
 
     def getRedisKeyForVisitCount(self, name):
-        return self.getRedisKey('visit-count', name)
+        return self.getRedisKey('visit-count', name.lower())
     
     def getRedisKeyForTTL(self, name):
-        return self.getRedisKey('ttl', name)
+        return self.getRedisKey('ttl', name.lower())
 
     def getRedisKeyForDefaultNameIndex(self):
         return self.getRedisKey('default-name-index')
