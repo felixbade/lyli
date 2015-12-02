@@ -69,7 +69,7 @@ def join_words(words):
         return ', '.join(words) + u' eikä ' + last
 
 duration_choices = [
-        ('normal', u'Poista lyhennys kun sitä ei ole käytetty kahteen viikkoon'),
+        ('normal', u'Poista lyhennys kun sitä ei ole käytetty kolmeen viikkoon'),
         ('brief', u'Poista lyhennys tunnin päästä'),
         ('once', u'Poista lyhennys ensimmäisen avauksen jälkeen')]
 

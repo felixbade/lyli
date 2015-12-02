@@ -27,7 +27,7 @@ def shorten(complicated=False):
             description += u'ensimmäisen avauksen jälkeen.'
         else:
             backend.shorten(url, name, config.normal_ttl, config.normal_ttl)
-            description += u'kun sitä ei ole käytetty kahteen viikkoon.'
+            description += u'kun sitä ei ole käytetty kolmeen viikkoon.'
         return frontpage(newurl=name, complicated=complicated, description=description)
     else:
         return frontpage(form=form, complicated=complicated)
