@@ -77,4 +77,4 @@ class ShorteningForm(Form):
     url = TextField('url', [check_url])
     default_name = HiddenField('default_name')
     name = TextField('name', [check_name])
-    duration = RadioField('duration', choices=duration_choices, default='normal')
+    duration = RadioField('duration', choices=duration_choices, default='once')
