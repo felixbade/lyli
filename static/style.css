@@ -104,6 +104,11 @@ div.notification a {
   font-size: 32px;
   line-height: 160%;
 }
+#removeurl {
+  color: #d84218;
+  font-size: 14px;
+  margin-top: 10px;
+}
 #lyli-icon {
   height: 120px;
 }

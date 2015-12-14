@@ -1,9 +1,15 @@
+from os import urandom
+import base64
+
 import redis
 
 from app.urlshortener.name import getNthName
 from app.urlshortener.url import encodeURL
 
 import config
+
+def generatePasscode():
+    return base64.urlsafe_b64encode(urandom(30)).decode()
 
 class URLShortener:
     
@@ -17,13 +23,22 @@ class URLShortener:
         if existing_url is None:
             self.r.set(self.getRedisKeyForURL(name), url)
             self.r.set(self.getRedisKeyForVisitCount(name), 0)
+            passcode = generatePasscode()
+            self.r.set(self.getRedisKeyForPasscode(name), passcode)
             self.setClickTTL(name, click_ttl)
             self.setTTL(name, begin_ttl)
+            return passcode
+        else:
+            return False
+
+    def delete(self, name, passcode):
+        correct_passcode = self.r.get(self.getRedisKeyForPasscode(name))
+        if correct_passcode is not None and passcode == correct_passcode.decode():
+            self.r.delete(self.getRedisKeyForURL(name))
+            self.r.delete(self.getRedisKeyForVisitCount(name))
+            self.r.delete(self.getRedisKeyForPasscode(name))
+            self.r.delete(self.getRedisKeyForTTL(name))
             return True
-        # TODO: what should happen if one is brief link and one is not?
-        #elif existing_url == url:
-        #    self.resetClickTTL(name)
-        #    return True
         else:
             return False
 
@@ -91,6 +106,7 @@ class URLShortener:
     def setTTL(self, name, ttl):
         self.expire(self.getRedisKeyForURL(name), ttl)
         self.expire(self.getRedisKeyForTTL(name), ttl)
+        self.expire(self.getRedisKeyForPasscode(name), ttl)
         self.expire(self.getRedisKeyForVisitCount(name), ttl)
 
 
@@ -107,6 +123,9 @@ class URLShortener:
 
     def getRedisKeyForVisitCount(self, name):
         return self.getRedisKey('visit-count', name.lower())
+
+    def getRedisKeyForPasscode(self, name):
+        return self.getRedisKey('passcode', name.lower())
     
     def getRedisKeyForTTL(self, name):
         return self.getRedisKey('ttl', name.lower())

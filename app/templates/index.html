@@ -11,6 +11,23 @@
     <h2>Lyhentäminen onnistui.</h2>
     <a id="newurl" href="https://lyli.fi/{{newurl}}">lyli.fi/{{newurl}}</a><br>
     <span class="description">{{description}}</span>
+    <br>
+    <a id="removeurl" href="/poista-lyhennys/{{newurl}}/{{passcode}}">Poista lyhennys</a>
+</div>
+{% endif %}
+
+{# Successfully removed the shortening #}
+{% if removedlink %}
+<div class="notification">
+    <h2>Linkki <span class="notfound">lyli.fi/{{removedlink}}</span> poistettiin.</h2>
+</div>
+{% endif %}
+
+{# Failed to remove the shortening #}
+{% if didnotremovelink %}
+<div class="notification">
+    <h2>Linkkiä <a href="https://lyli.fi/{{didnotremovelink}}">lyli.fi/{{didnotremovelink}}</a> ei poistettu.</h2>
+    <span class="description">Turvakoodi on väärä.</span>
 </div>
 {% endif %}
 

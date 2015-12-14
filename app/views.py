@@ -13,22 +13,23 @@ import config
 @app.route('/', methods=['POST'])
 def shorten(complicated=False):
     form = ShorteningForm(request.form)
-    if form.validate(): # NOTE possibly not thread safe for simultaneous shortenings
+    if form.validate():
         g.notes['shortening'] = 'success'
         name = form.name.data or request.form.get('default_name', '')
         url = form.url.data
         duration = form.duration.data
         description = u'Lyhyt linkki vapautuu '
+        passcode = None
         if duration == 'brief':
-            backend.shorten(url, name, config.brief_ttl, 0)
+            passcode = backend.shorten(url, name, config.brief_ttl, 0)
             description += u'tunnin päästä, käytettiin sitä tai ei.'
         elif duration == 'once':
-            backend.shorten(url, name, -1, 0)
+            passcode = backend.shorten(url, name, -1, 0)
             description += u'ensimmäisen avauksen jälkeen.'
         else:
-            backend.shorten(url, name, config.normal_ttl, config.normal_ttl)
+            passcode = backend.shorten(url, name, config.normal_ttl, config.normal_ttl)
             description += u'kun sitä ei ole käytetty kolmeen viikkoon.'
-        return frontpage(newurl=name, complicated=complicated, description=description)
+        return frontpage(newurl=name, complicated=complicated, description=description, passcode=passcode)
     else:
         return frontpage(form=form, complicated=complicated)
 
@@ -49,6 +50,15 @@ def visit(name):
     url = backend.visit(name)
     if url:
         return redirect(url, code=307)
+    else:
+        return frontpage(nosuchlink=name, code=404)
+
+@app.route('/poista-lyhennys/<name>/<passcode>')
+def remove(name, passcode):
+    if backend.delete(name, passcode):
+        return frontpage(removedlink=name)
+    elif backend.exists(name):
+        return frontpage(didnotremovelink=name, code=403)
     else:
         return frontpage(nosuchlink=name, code=404)
 
