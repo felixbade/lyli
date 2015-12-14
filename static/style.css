@@ -94,7 +94,6 @@ div.notification span {
   color: #6e6c5f;
 }
 div.notification span.notfound {
-  text-decoration: underline;
   color: #d84218;
 }
 div.notification a {
