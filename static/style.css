@@ -12,6 +12,16 @@ body {
   margin: 0;
   word-wrap: break-word;
 }
+.banner {
+  margin: 0;
+  padding: 0;
+  background-color: #ffcf3d;
+}
+.bannercontent {
+  margin: 0 auto;
+  padding: 1em 0;
+  max-width: 40em;
+}
 .content {
   margin: 1em auto;
   padding: 1.5em 3em;
@@ -160,6 +170,9 @@ button:hover {
   background-color: #2e902e;
 }
 @media all and (max-width: 48em) {
+  .bannercontent {
+    padding: 1em;
+  }
   .content {
     margin: 0;
     border: none;
@@ -168,6 +181,9 @@ button:hover {
   }
 }
 @media all and (max-width: 30em) {
+  .bannercontent {
+    padding: 1em;
+  }
   .content {
     padding: 1em;
   }

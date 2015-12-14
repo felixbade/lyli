@@ -12,6 +12,7 @@ notificationbgcolor = hsl(42, 100%, 82%)
 errorcolor = hsl(8, 100%, 42%)
 notfoundcolor = hsl(13, 80%, 47%)
 fadedtextcolor = hsl(60, 5%, 45%)
+bannercolor = hsl(45, 100%, 62%)
 
 darkenamount = 17%
 
@@ -27,6 +28,16 @@ body
     font-size: 18px
     margin: 0
     word-wrap: break-word
+
+.banner
+    margin: 0
+    padding: 0
+    background-color: bannercolor
+
+.bannercontent
+    margin: 0 auto
+    padding: 1em 0
+    max-width: 40em
 
 .content
     margin: 1em auto
@@ -164,6 +175,9 @@ button
 
 
 @media all and (max-width: 48em)
+    .bannercontent
+        padding: 1em
+
     .content
         margin: 0
         border: none
@@ -171,6 +185,9 @@ button
         box-shadow: 0 0
 
 @media all and (max-width: 30em)
+    .bannercontent
+        padding: 1em
+
     .content
         padding: 1em
 
