@@ -5,8 +5,8 @@ from flask import request, render_template, redirect, g
 from app import app
 from app import backend
 from app.email import get_email
-
 from app.forms import ShorteningForm
+from app.request_logger import seems_like_a_bot
 
 import config
 
@@ -47,7 +47,7 @@ def complicated():
 
 @app.route('/<name>')
 def visit(name):
-    url = backend.visit(name)
+    url = backend.visit(name, seems_like_a_bot())
     if url:
         return redirect(url, code=307)
     else:

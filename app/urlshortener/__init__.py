@@ -23,6 +23,7 @@ class URLShortener:
         if existing_url is None:
             self.r.set(self.getRedisKeyForURL(name), url)
             self.r.set(self.getRedisKeyForVisitCount(name), 0)
+            self.r.set(self.getRedisKeyForBotCount(name), 0)
             passcode = generatePasscode()
             self.r.set(self.getRedisKeyForPasscode(name), passcode)
             self.setClickTTL(name, click_ttl)
@@ -36,16 +37,19 @@ class URLShortener:
         if correct_passcode is not None and passcode == correct_passcode.decode():
             self.r.delete(self.getRedisKeyForURL(name))
             self.r.delete(self.getRedisKeyForVisitCount(name))
+            self.r.delete(self.getRedisKeyForBotCount(name))
             self.r.delete(self.getRedisKeyForPasscode(name))
             self.r.delete(self.getRedisKeyForTTL(name))
             return True
         else:
             return False
 
-    def visit(self, name):
+    def visit(self, name, is_a_bot=False):
         url = self.get(name)
         if url is not None:
             self.r.incr(self.getRedisKeyForVisitCount(name))
+            if is_a_bot:
+                self.r.incr(self.getRedisKeyForBotCount(name))
             self.resetClickTTL(name)
         return url
 
@@ -78,6 +82,9 @@ class URLShortener:
     def getVisitCount(self, name):
         return int(self.r.get(self.getRedisKeyForVisitCount(name)))
 
+    def getBotCount(self, name):
+        return int(self.r.get(self.getRedisKeyForBotCount(name)))
+
     
     
     # TODO: ttl refers to two things here.
@@ -105,9 +112,10 @@ class URLShortener:
     # set type 1 ttl
     def setTTL(self, name, ttl):
         self.expire(self.getRedisKeyForURL(name), ttl)
+        self.expire(self.getRedisKeyForVisitCount(name), ttl)
+        self.expire(self.getRedisKeyForBotCount(name), ttl)
         self.expire(self.getRedisKeyForTTL(name), ttl)
         self.expire(self.getRedisKeyForPasscode(name), ttl)
-        self.expire(self.getRedisKeyForVisitCount(name), ttl)
 
 
 
@@ -123,6 +131,9 @@ class URLShortener:
 
     def getRedisKeyForVisitCount(self, name):
         return self.getRedisKey('visit-count', name.lower())
+
+    def getRedisKeyForBotCount(self, name):
+        return self.getRedisKey('bot-count', name.lower())
 
     def getRedisKeyForPasscode(self, name):
         return self.getRedisKey('passcode', name.lower())

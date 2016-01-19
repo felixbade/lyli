@@ -29,6 +29,22 @@ def before():
     g.response_start_time = time.time()
     g.notes = {}
 
+# accuracy: typically less than 5% false positives and less than 20% false negatives
+def seems_like_a_bot():
+    try:
+        # url to bot's home page
+        if '://' in request.headers['User-Agent']:
+            return True
+        # modern browsers can decode deflate
+        if not 'deflate' in request.headers['Accept-Encoding']:
+            return True
+        # modern browsers say which mimetype they are expecting
+        if request.headers['Accept'] == '*/*':
+            return True
+    except:
+        return True
+    return False
+
 def shouldDeleteCookie(response):
     # Nothing to delete
     if not session:
