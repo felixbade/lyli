@@ -76,7 +76,7 @@ class URLShortener:
         return url
 
     def getVisitCount(self, name):
-        return self.r.get(self.getRedisKeyForVisitCount(name))
+        return int(self.r.get(self.getRedisKeyForVisitCount(name)))
 
     
     
