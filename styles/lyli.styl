@@ -1,6 +1,7 @@
 /* Stylesheet for lyli.fi by Felix Bade */
 
 font = "Slabo 13px", Georgia, serif
+lineheight = 170%
 
 textcolor = #333
 bgcolor = hsl(95, 40%, 61%)
@@ -58,7 +59,7 @@ h1, h2
 
 p, li
     font-size: 16px
-    line-height: 160%
+    line-height: lineheight
 
 pre
     white-space: pre-wrap
@@ -85,10 +86,11 @@ img
 .description, footer, footer > a
     font-size: 14px
     color: fadedtextcolor
-    line-height: 160%
+    line-height: lineheight
 
 footer
     text-align: center
+    margin-top: 2em
 
 
 
@@ -114,7 +116,7 @@ div.notification
 
 #newurl
     font-size: 32px
-    line-height: 160%
+    line-height: lineheight
 
 #removeurl
     color: notfoundcolor
@@ -158,7 +160,7 @@ label
 .error
     font-size: 14px
     color: errorcolor
-    line-height: 160%
+    line-height: lineheight
 
 
 
@@ -194,6 +196,9 @@ button
 
     .content
         padding: 1em
+
+    footer
+        margin-top: 1em
 
     img
         margin-bottom: 1.3em

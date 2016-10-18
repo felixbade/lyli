@@ -42,7 +42,7 @@ h2 {
 p,
 li {
   font-size: 16px;
-  line-height: 160%;
+  line-height: 170%;
 }
 pre {
   white-space: pre-wrap;
@@ -72,10 +72,11 @@ footer,
 footer > a {
   font-size: 14px;
   color: #78786d;
-  line-height: 160%;
+  line-height: 170%;
 }
 footer {
   text-align: center;
+  margin-top: 2em;
 }
 div.notification {
   background-color: #ffe3a3;
@@ -101,7 +102,7 @@ div.notification a {
 }
 #newurl {
   font-size: 32px;
-  line-height: 160%;
+  line-height: 170%;
 }
 #removeurl {
   color: #d84218;
@@ -156,7 +157,7 @@ label {
 .error {
   font-size: 14px;
   color: #d61d00;
-  line-height: 160%;
+  line-height: 170%;
 }
 button {
   margin: 0.1em 0;
@@ -190,6 +191,9 @@ button:hover {
   }
   .content {
     padding: 1em;
+  }
+  footer {
+    margin-top: 1em;
   }
   img {
     margin-bottom: 1.3em;
