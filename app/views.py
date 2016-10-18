@@ -46,6 +46,7 @@ def complicated():
     return frontpage(complicated=True)
 
 @app.route('/<name>')
+@app.route('/<name>/')
 def visit(name):
     url = backend.visit(name, seems_like_a_bot())
     if url:
