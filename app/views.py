@@ -51,7 +51,7 @@ def visit(name):
     if url:
         return redirect(url, code=307)
     else:
-        return frontpage(nosuchlink=name, code=404)
+        return frontpage(nosuchlink=name, default_name=name, code=404)
 
 @app.route('/poista-lyhennys/<name>/<passcode>')
 def remove(name, passcode):
@@ -66,10 +66,12 @@ def remove(name, passcode):
 def notfound(error):
     return frontpage(nosuchpage=request.path, code=404)
 
-def frontpage(code=200, form=None, **args):
+def frontpage(code=200, form=None, default_name=None, **args):
     if form is None:
         form = ShorteningForm()
-    return render_template('index.html', form=form, default_name=getDefaultName(), email=get_email(), **args), code
+    if default_name is None:
+        default_name = getDefaultName()
+    return render_template('index.html', form=form, default_name=default_name, email=get_email(), **args), code
 
 def getDefaultName():
     name = request.form.get('default_name', '')
