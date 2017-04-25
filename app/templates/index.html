@@ -27,15 +27,15 @@
 {% if didnotremovelink %}
 <div class="notification">
     <h2>Linkkiä <a href="https://lyli.fi/{{didnotremovelink}}">lyli.fi/{{didnotremovelink}}</a> ei poistettu.</h2>
-    <span class="description">Antamallasi koodilla ei voi poistaa tätä lyhennystä.</span>
+    <span class="description">Linkkiä ei voitu poistaa, koska se on lyhennetty eri selaimesta.</span>
 </div>
 {% endif %}
 
 {# Link/page not found #}
 {% if nosuchlink %}
 <div class="notification">
-    <h2>Linkkiä <span class="notfound">lyli.fi/{{nosuchlink}}</span> ei ole olemassa.</h2>
-    <span class="description">Se on saattanut olla joskus olemassa. Linkit vapautuvat automaattisesti.</span>
+    <h2>Linkkiä <span class="notfound">lyli.fi/{{nosuchlink}}</span> ei ole olemassa. ¯\_(ツ)_/¯</h2>
+    <span class="description">Se on saattanut olla joskus olemassa. Linkit vapautuvat automaattisesti, kun niitä ei ole käytetty kolmeen viikkoon.</span>
 </div>
 {% elif nosuchpage %}
 <div class="notification">
