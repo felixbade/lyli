@@ -14,7 +14,7 @@ def generatePasscode():
 class URLShortener:
     
     def __init__(self):
-        self.r = redis.StrictRedis(host='localhost', port=6379, db=0)
+        self.r = redis.StrictRedis(host='redis', port=6379, db=0)
         self.namespace = 'lyli'
 
     def shorten(self, url, name, begin_ttl, click_ttl):
