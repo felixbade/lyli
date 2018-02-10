@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: python3 lyli.py
+    volumes:
+     - .:/code
+  redis:
+    image: "redis:alpine"
+    command: redis-server --appendonly yes
+    volumes:
+      - ./redis:/data
+  nginx:
+    image: nginx:alpine
+    volumes:
+     - ./lyli.template:/etc/nginx/conf.d/lyli.template
+     - ./static:/var/www/lyli.fi
+    ports:
+     - "8080:80"
+    command: /bin/sh -c "cat /etc/nginx/conf.d/lyli.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+

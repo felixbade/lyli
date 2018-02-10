@@ -16,4 +16,4 @@ logging.basicConfig(filename='access.log', level=logging.DEBUG, format='%(messag
 if config.debug:
     app.run(port=3003, debug=True, use_reloader=True)
 else:
-    app.run(port=3004, debug=False, use_reloader=False)
+    app.run(host="web", port=3004, debug=False, use_reloader=False)
