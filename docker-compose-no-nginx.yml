@@ -5,15 +5,12 @@ services:
     command: python3 lyli.py
     ports:
      - 127.0.0.1:3004:3004
+    restart: unless-stopped
     volumes:
      - .:/code
   redis:
     image: "redis:alpine"
     command: redis-server --appendonly yes
+    restart: unless-stopped
     volumes:
       - ./redis:/data
-
-
-
-
-
