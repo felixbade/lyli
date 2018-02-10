@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: python3 lyli.py
+    ports:
+     - 127.0.0.1:3004:3004
+    volumes:
+     - .:/code
+  redis:
+    image: "redis:alpine"
+    command: redis-server --appendonly yes
+    volumes:
+      - ./redis:/data
+
+
+
+
+
