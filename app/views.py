@@ -29,6 +29,7 @@ def shorten(complicated=False):
         else:
             passcode = backend.shorten(url, name, config.normal_ttl, config.normal_ttl)
             description += u'kun sitä ei ole käytetty kolmeen viikkoon.'
+        g.notes['passcode'] = passcode
         return frontpage(newurl=name, complicated=complicated, description=description, passcode=passcode)
     else:
         return frontpage(form=form, complicated=complicated)
