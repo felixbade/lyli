@@ -15,6 +15,6 @@ def getID():
     return b62(integerid)
 
 def get_email():
-    return 'lyli@lyli.fi'
+    return 'flix.bade@gmail.com'
     # track email spammers
     #return 'lyli.%s@lyli.fi' % getID()
