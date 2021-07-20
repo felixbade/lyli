@@ -85,6 +85,10 @@ def getDefaultName():
 def terms():
     return render_template('terms.html', email=get_email())
 
+@app.route('/tarina/')
+def story():
+    return render_template('story.html', email=get_email())
+
 @app.route('/500.html')
 def errorpage500():
     return render_template('500.html')
