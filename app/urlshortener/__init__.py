@@ -51,7 +51,8 @@ class URLShortener:
             if is_a_bot:
                 self.r.incr(self.getRedisKeyForBotCount(name))
             self.resetClickTTL(name)
-        return url
+            return url.decode()
+        return None
 
     def getNextName(self, name=None):
         if name and not self.exists(name):
