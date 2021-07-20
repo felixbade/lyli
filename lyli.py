@@ -1,6 +1,7 @@
 #!flask/bin/python
 import logging
 
+from waitress import serve
 import werkzeug.serving
 
 from app import app
@@ -16,4 +17,6 @@ logging.basicConfig(filename='access.log', level=logging.DEBUG, format='%(messag
 if config.debug:
     app.run(port=3003, debug=True, use_reloader=True)
 else:
-    app.run(host="web", port=3004, debug=False, use_reloader=False)
+    logger = logging.getLogger('waitress')
+    logger.setLevel(logging.DEBUG)
+    serve(app, host='0.0.0.0', port=3004)

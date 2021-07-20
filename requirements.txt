@@ -1,3 +1,4 @@
 flask
+waitress
 redis
 WTForms==2.1
